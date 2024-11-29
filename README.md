@@ -296,5 +296,8 @@ int main() {
 </br>
 
 **Ejecucion:**
-![](https://github.com/DiegoIgnacioCorreaCervantes/)
+![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/3.2_1.png)
+</br>
+
+![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/3.2_2.png)
 </br>
