@@ -4,10 +4,10 @@
 #### Alumno: Correa Cervantes Diego Ignacio, Grupo C
 ---
 
-### Administración de Memoria
+## Administración de Memoria
 </br>
 
-#### 3.1 Política y filosofía
+### 3.1 Política y filosofía
 
 **1. ¿Cuál es la diferencia entre fragmentación interna y externa? Explica cómo cada una afecta el rendimiento de la memoria**
 
@@ -162,11 +162,9 @@ víctima y se escribe de vuelta al disco.
 ##### Conclusión:
 
 El mejor algoritmo es el WSclock ya que no solo es eficiente y rapido si no que es muy dificil que prsente algun fallo.
-</br>
+</br><br>
 
----
-
-#### 3.2 Memoria real
+### 3.2 Memoria real
 
 **1. Escribe un programa en C o Python que simule la administración de
  memoria mediante particiones fijas.**
@@ -296,8 +294,97 @@ int main() {
 </br>
 
 **Ejecucion:**
+</br>
+
 ![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/3.2_1.png)
 </br>
 
 ![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/3.2_2.png)
 </br>
+
+**2. Diseña un algoritmo para calcular qué procesos pueden ser asignados
+ a un sistema con memoria real(principal) limitada utilizando el algoritmo de
+ "primer ajuste".**
+
+Empezamos cargando los procesos en una cola de entrada, cada proceso tiene asignada la cantidad de memoria que necesita para poder ejecutarse. Iniciamos con toda nuestra memoria disponible la cual esta formada por bloques de memoria del mismo tamaño. Ahora le asignamos a los primeros procesos de la cola uno o varios bloques(segun se requiera), estos solo tomaran la memoria que necesiten y dejaran el restante libre formando un **"agujero"** en el que tendremos que revisar si cabe el siguiente proceso, de no ser el caso asignamos el siguiente bloque y dejaremos el agujero vacio. Este procedimiento continuara hasta que el siguiente proceso de la cola no quepa en el ultimo bloque o agujero disponible.
+Entonces revisaremos los agujeros que hemos dejado atras y basado en el algoritmo del **primer ajuste** buscaremos al primero lo suficientemente grande como para cargar el proceso. Si logramos encontrar el agujero entonces cargaremos el proceso y si sobra memoria esta se convertira en un nuevo agujero, si el nuevo agujero se encuentren adyacente a otro estos se conbinaran formando uno de mayor tamaño. 
+En caso de no encontrar un agujero con la memoria suficiente procederemos a recorrer la cola en busca de un proceso que requiera de menos memoria y revisaremos nuevamente los agujeros asignandole uno para despues realizar la carga. Ya sea un exito o no seguiremos comparando los procesos de la cola con los agujeros restantes, realizaremos las cargas correspondientes y cuando hayamos comparado todos los procesos solo nos quedara esperar a que algun proceso termine su ejecucion liberando espacio y generando nuevos agujeros en los que podremos cargar nuevos procesos siguiendo el procedimiento anterior.
+</br><br>
+
+### 3.3 Organización de memoria virtual
+
+**1. Investiga y explica el concepto de "paginación" y "segmentación".
+¿Cuáles son las ventajas y desventajas de cada técnica?**
+
+#### Paginación
+
+La paginación se trata de un modelo de organización de memoria física en el que se divide toda la memoria en porciones del mismo tamaño. Esas porciones reciben el nombre de marcos o páginas físicas. Si dividimos la memoria en páginas, podremos gestionarla mejor.
+
+Los marcos se identifican con un número que se denomina **número de página física**. A su vez, cada página física se asigna a un proceso de forma exclusiva. Por otro lado, cada proceso tiene un espacio de páginas lógicas, y cada una se mapea o se asocia a un marco.
+La tabla de páginas es el mapeo resultante entre páginas lógicas y físicas. Por tanto, cada proceso tiene su tabla de páginas. Luego, hay que entender que el proceso tiene un direccionamiento lógico que usará para satisfacer sus necesidades. Por ejemplo, un procesador de 32 bits ofrece al proceso 2^32 = 4 GB de memoria.
+
+La paginación consta de dos funciones principales:
+
+**1. Transforma una dirección virtual a física.**
+**2. Transfiere páginas de la memoria secundaria a la memoria principal y viceversa.**
+
+Y usa 2 posibles estructuras de datos:
+
+**Tabla de páginas:** Guarda la dirección del marco en la que está almacenada cada página. Existe una tabla por proceso y tantas entradas como páginas tiene éste. Transforma direcciones virtuales o lógicas a físicas. 
+
+**Lista de marcos libres:** Guarda los marcos sin asignar, habiendo una tabla para todo el sistema (no para cada proceso). Hay tantas entradas como marcos libres.
+
+Cada dirección lógica contiene 2 cosas: el número de página y el desplazamiento.
+
+##### Ventajas
+Los procesos pueden albergar distintas posiciones de memoria, pudiendo ser desplazados sin problema. Esto ofrece versatilidad.
+
+En segundo lugar, no existen conflictos entre procesos que quieren acceder a ciertas posiciones de memorias. Es decir, no se da el caso de que un proceso acceda a una posición de memoria de otro proceso.
+
+##### Desventajas
+El costo del hardware y software se incrementan, por la nueva información que debe manejarse y el mecanismo de traducción de direcciones necesarias, se consume mucho mas recurso e memoria, tiempo en la CPU para su implantación.
+
+Se deben reservar áreas de memoria para las PMT de los procesos, al no ser fijas el tamaño de estas se crea un problema semejante al de los programas.
+
+Aparece el problema de fragmentación interna. La fragmentación interna es un fenómeno que ocurre en computación cuando se asigna más espacio de memoria del que se necesita, lo que deja espacio sin utilizar dentro de los bloques asignados.
+
+#### Segmentación
+
+En informática la segmentación de memoria es una técnica de gestión de memoria que pretende acercarse más al punto de vista del usuario. Los programas se desarrollan, generalmente, en torno a un núcleo central (principal) desde el que se bifurca a otras partes (rutinas) o se accede a zonas de datos (tablas, pilas, etc).
+
+Desde este punto de vista, un programa es un conjunto de componentes lógicos de tamaño variable o un conjunto de segmentos, es decir, el espacio lógico de direcciones se considera como un conjunto de segmentos, cada uno definido por un identificador, y consistente de un punto de inicio y el tamaño asignado.1​
+
+La segmentación de un programa la realiza el compilador y en ella cada dirección lógica se expresará mediante dos valores: Número de segmento (s) y desplazamiento dentro del segmento (d).
+
+Una de las implementaciones más obvias y directas de un espacio de memoria segmentado es asignar un segmento distinto a cada una de las secciones del espacio en memoria de un proceso. La segmentación también ayuda a incrementar la modularidad de un programa.
+
+##### Ventajas
+El programador puede conocer las unidades lógicas de su programa.
+
+Es posible compilar módulos separados como segmentos el enlace entre los segmentos puede suponer hasta tanto se haga una referencia entre segmentos.
+
+Es fácil compartir segmentos.
+
+Existe la posibilidad de definir segmentos que aun no existan.
+
+La compartición de segmentos permite ahorrar memoria.
+
+##### Desventajas
+Hay un incremento en el costo del hardware y   software para llevar a cabo la implantación, asi como mayor recurso de consumo de memoria, tiempo de CPU.
+
+Se compila el manejo de memoria virtual, ya que los discos almacenan información en bloques de tamaños fijos.
+
+No se puede garantizar que al salir de un segmento de la memoria este pueda ser traído fácilmente de nuevo,ya que sera necesario  encontrar nuevamente un área de memoria libre ajustada a su tamaño.
+
+Aparece el problema de la fracmentacion externa. La fragmentación externa es un problema informático que se produce cuando la memoria libre se divide en bloques pequeños y se intercala con la memoria asignada.
+
+
+
+ 
+
+
+
+
+
+
+
