@@ -699,6 +699,7 @@ Acompáñalo con un programa básico que simule el proceso.**
 
 **2. Implementa un programa en Python, C o java que realice operaciones
 de entrada/salida asíncronas usando archivos.**
+
 </br>
 
 ### Integración
