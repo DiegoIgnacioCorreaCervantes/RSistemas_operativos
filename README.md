@@ -162,12 +162,14 @@ víctima y se escribe de vuelta al disco.
 ##### Conclusión:
 
 El mejor algoritmo es el WSclock ya que no solo es eficiente y rapido si no que es muy dificil que prsente algun fallo.
-</br><br>
+
+</br>
 
 ### 3.2 Memoria real
 
 **1. Escribe un programa en C o Python que simule la administración de
  memoria mediante particiones fijas.**
+</br>
 
 ~~~
 #include <stdio.h>
@@ -380,21 +382,25 @@ Una de las implementaciones más obvias y directas de un espacio de memoria segm
 * No se puede garantizar que al salir de un segmento de la memoria este pueda ser traído fácilmente de nuevo,ya que sera necesario  encontrar nuevamente un área de memoria libre ajustada a su tamaño.
 
 * Aparece el problema de la fracmentacion externa. La fragmentación externa es un problema informático que se produce cuando la memoria libre se divide en bloques pequeños y se intercala con la memoria asignada.
+</br>
 
 **2. Escribe un programa que simule una tabla de páginas para procesos con acceso aleatorio 
 a memoria virtual.**
+
 </br>
 
 ### 3.4 Administración de memoria virtual
 
 **1. Escribe un código que implemente el algoritmo de reemplazo de página
  "Least Recently Used" (LRU).**
+</br>
 
 **2. Diseña un diagrama que represente el proceso de traducción de direc
 ciones virtuales a físicas en un sistema con memoria virtual.**
 </br>
 
 ![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/3.4_2.jpeg)
+
 </br>
 
 ### Integración
@@ -437,6 +443,7 @@ y maximizar la utilización de la memoria, lo que aumenta el nivel de multiprogr
 Otro desafío es la complejidad y el costo de implementar y mantener el sistema de memoria virtual, que requiere 
 soporte de hardware, diseño de software y estructuras de datos. Las aplicaciones también tienen que adaptarse al 
 entorno de memoria virtual, evitando la asignación excesiva de memoria, la fragmentación y el thrashing.
+</br>
 
 **2. Realiza una simulación en cualquier lenguaje de programación que
  emule el swapping de procesos en memoria virtual.**
@@ -448,8 +455,8 @@ entorno de memoria virtual, evitando la asignación excesiva de memoria, la frag
 
 ### 4.1 Dispositivos y manejadores de dispositivos
 
-**1. Explica la diferencia entre dispositivos de bloque y dispositivos de
- carácter. Da un ejemplo de cada uno.**
+**1. Explica la diferencia entre dispositivos de bloque y dispositivos de carácter. 
+Da un ejemplo de cada uno.**
 
 Los dispositivos de bloque y los dispositivos de carácter son dos tipos de dispositivos de E/S (entrada/salida) 
 en sistemas informáticos. 
@@ -457,6 +464,8 @@ en sistemas informáticos.
 ##### Dispositivos de Bloque:
 
 * Trabajan con datos en bloques de tamaño fijo.
+  
+* Los tamaños de bloque comunes varían desde 512 bytes hasta 32,768 bytes.
   
 * La E/S se realiza en bloques de datos completos, lo que permite una transferencia eficiente de grandes 
   cantidades de datos.
@@ -474,11 +483,240 @@ en sistemas informáticos.
 * Suelen ser más utilizados para la entrada de datos, la visualización de información y la comunicación con dispositivos externos.
 
 * Ejemplos incluyen teclados, ratones, impresoras y puertos serie.
-  
+</br>
+
 ** 2. Diseña un programa que implemente un manejador de dispositivos sen
 cillo para un dispositivo virtual de entrada.**
 
 </br>
+
+### 4.2 Mecanismos y funciones de los manejadores de dispositivos
+
+**1. Investiga qué es la interrupción por E/S y cómo la administra el sistema operativo. 
+Escribe un ejemplo en pseudocódigo para simular este proceso.**
+
+Además de proporcionar abstracciones como los procesos (e hilos), espacios de direcciones y ar
+chivos, un sistema operativo también controla todos los dispositivos de E/S (Entrada/Salida) de la
+computadora. Debe emitir comandos para los dispositivos, captar interrupciones y manejar errores.
+Adicionalmente debe proporcionar una interfaz —simple y fácil de usar— entre los dispositivos y
+el resto del sistema. 
+
+A nivel de hardware, las interrupciones funcionan de la siguiente manera. Cuando un dispositivo de E/S 
+ha terminado el trabajo que se le asignó, produce una interrupción (suponiendo que el sistema operativo 
+haya habilitado las interrupciones). Para ello, impone una señal en una línea de bus que se le haya asignado.
+Esta señal es detectada por el chip controlador de interrupciones en la tarjeta principal, que después decide 
+lo que debe hacer.
+
+Si no hay otras interrupciones pendientes, el controlador de interrupciones procesa la interrupción de 
+inmediato. Si hay otra en progreso, o si otro dispositivo ha realizado una petición simultánea en una 
+línea de petición de interrupción de mayor prioridad en el bus, el dispositivo sólo se ignora por el momento. 
+En este caso, continúa imponiendo una señal de interrupción en el bus hasta que la CPU la atiende.
+
+Para manejar la interrupción, el controlador coloca un número en las líneas de dirección que
+especifican cuál dispositivo desea atención e impone una señal para interrumpir a la CPU.
+La señal de interrupción hace que la CPU deje lo que está haciendo y empiece a hacer otra cosa. 
+El número en las líneas de dirección se utiliza como índice en una tabla llamada vector de interrupciones 
+para obtener un nuevo contador del programa. Este contador del programa apunta alinicio del procedimiento de 
+servicio de interrupciones correspondiente. Por lo general, las trampas e interrupciones utilizan el mismo 
+mecanismo desde este punto en adelante, y con frecuencia comparten el mismo vector de interrupción. 
+La ubicación del vector de interrupción se puede determinar de manera estática (hardwired) en la máquina, 
+o puede estar en cualquier parte de la memoria, con un registro de la CPU (cargado por el sistema operativo) 
+apuntando a su origen. Poco después de que se empieza a ejecutar, el procedimiento de servicio de interrupciones
+reconoce la interrupción al escribir cierto valor en uno de los puertos de E/S del controlador de interrupciones. 
+Este reconocimiento indica al controlador que puede emitir otra interrupción. Al hacer que la CPU retrase este 
+reconocimiento hasta que esté lista para manejar la siguiente interrupción, se pueden evitar las condiciones de 
+competencia que involucran varias interrupciones (casi simultáneas).
+
+El hardware siempre guarda cierta información antes de iniciar el procedimiento de servicio.
+La información que se guarda y el lugar en donde se guarda varía de manera considerable, entre una
+CPU y otra. Como mínimo se debe guardar el contador del programa para que se pueda reiniciar el
+proceso interrumpido. En el otro extremo, todos los registros visibles y un gran número de registros
+internos se pueden guardar también.
+</br>
+
+![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/4.2_1.png)
+
+</br>
+
+**2. Escribe un programa que utilice el manejo de interrupciones en un sistema básico de simulación.
+
+</br>
+
+### 4.3 Estructuras de datos para manejo de dispositivos
+
+**1. Investiga y explica qué es una cola de E/S. Diseña una simulación de una cola con prioridad.
+
+Una cola es una estructura de datos que almacena elementos en una lista, donde los nuevos elementos se 
+insertan en el final y los existentes se eliminan en el principio. 
+
+En informática, las colas son una herramienta esencial para gestionar el flujo de personas o procesos en 
+diferentes industrias. Permiten organizar y controlar el flujo de manera eficiente, garantizando una distribución 
+equitativa de recursos y reduciendo los tiempos de espera.
+
+Asi pues una cola de E/S es un contenedor de solicitudes de E/S que recibe un controlador en un sistema operativo. 
+Cada controlador puede crear una o más colas de E/S para cada dispositivo.
+</br>
+
+~~~
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+typedef struct _nodo {
+    int valor;
+    int prioridad;
+    struct _nodo *siguiente;
+} nodo;
+
+int numero_aleatorio() {
+    return (rand() % 4) + 1;
+}
+
+nodo* genera_proceso() {
+    static int contador = 1;
+    nodo* nuevo = (nodo*)malloc(sizeof(nodo));
+    if (nuevo == NULL) {
+        printf("Error al asignar memoria.\n");
+        exit(1);
+    }
+    nuevo->valor = contador++;
+    nuevo->prioridad = numero_aleatorio();
+    nuevo->siguiente = NULL;
+    return nuevo;
+}
+
+void insertar_final(nodo** cabeza) {
+    nodo* nuevoNodo = genera_proceso();
+
+    if (*cabeza == NULL) {
+        *cabeza = nuevoNodo;
+    } else {
+        nodo* temp = *cabeza;
+        while (temp->siguiente != NULL) {
+            temp = temp->siguiente;
+        }
+        temp->siguiente = nuevoNodo;
+    }
+}
+
+void imprimir_lista(nodo* cabeza) {
+    nodo* temp = cabeza;
+    while (temp != NULL) {
+        printf("%p |Proceso %d| (Prioridad %d) |direct %p| -> ", temp, temp->valor, temp->prioridad, &temp->prioridad);
+        temp = temp->siguiente;
+        
+    }
+    printf("NULL\n");
+}
+
+void atender_prioridad_mas_alta(nodo** cabeza) {
+    if (*cabeza == NULL) {
+        printf("No hay procesos para atender.\n");
+        return;
+    }
+
+    nodo* temp = *cabeza;
+    nodo* maxNodo = temp;
+    nodo* maxNodoPrevio = NULL;
+    nodo* previo = NULL;
+
+    // Buscar el nodo con la prioridad más alta
+    while (temp != NULL) {
+        if (temp->prioridad > maxNodo->prioridad) {
+            maxNodo = temp;
+            maxNodoPrevio = previo;
+        }
+        previo = temp;
+        temp = temp->siguiente;
+    }
+
+    // Atender el nodo con prioridad más alta
+    printf("Atendiendo proceso %d con prioridad %d\n", maxNodo->valor, maxNodo->prioridad);
+
+    // Eliminar el nodo de la lista
+    if (maxNodoPrevio == NULL) {
+        *cabeza = maxNodo->siguiente;  // El nodo con mayor prioridad es la cabeza
+    } else {
+        maxNodoPrevio->siguiente = maxNodo->siguiente;
+    }
+
+    free(maxNodo);
+}
+
+int main() {
+    srand(time(NULL));
+    nodo* cabeza = NULL;
+    int op = 0;
+
+    do {
+        printf("1. Genera proceso\n");
+        printf("2. Atiende proceso\n");
+        printf("3. Mostrar Lista de Procesos\n");
+        printf("4. Salir\n");
+        printf("Seleccione una opción: ");
+        scanf("%d", &op);
+
+        switch (op) {
+            case 1:
+                insertar_final(&cabeza);
+                break;
+            case 2:
+                atender_prioridad_mas_alta(&cabeza);
+                break;
+            case 3:
+                imprimir_lista(cabeza);
+                break;
+            case 4:
+                printf("Saliendo...\n");
+                break;
+            default:
+                printf("Opción no válida\n");
+        }
+    } while (op != 4);
+
+    return 0;
+}
+
+~~~
+</br>
+
+**Ejecucion:**
+</br>
+
+![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/4.3_1.png)
+</br>
+
+**2. Escribe un programa que simule las operaciones de un manejador de dispositivos utilizando una 
+tabla de estructuras.**
+
+</br>
+
+### 4.4 Operaciones de Entrada/Salida
+
+**1. Diseña un flujo que describa el proceso de lectura de un archivo desde un disco magnético. 
+Acompáñalo con un programa básico que simule el proceso.**
+</br>
+
+**2. Implementa un programa en Python, C o java que realice operaciones
+de entrada/salida asíncronas usando archivos.**
+</br>
+
+### Integración
+
+**1. Escribe un programa que implemente el algoritmo de planificación de
+ discos "Elevator (SCAN)".**
+</br>
+
+**2. Diseña un sistema que maneje múltiples dispositivos simulados (disco duro, impresora, teclado) 
+y muestra cómo se realiza la comunicación entre ellos.**
+
+</br>
+
+### Avanzados
+
+**1. Explica cómo los sistemas operativos modernos optimizan las operaciones de entrada/salida
+con el uso de memoria caché.**
+
 
 
 
