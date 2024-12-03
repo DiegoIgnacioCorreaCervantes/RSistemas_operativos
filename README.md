@@ -300,6 +300,7 @@ int main() {
 </br>
 
 ![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/3.2_2.png)
+
 </br>
 
 **2. Diseña un algoritmo para calcular qué procesos pueden ser asignados
@@ -309,7 +310,8 @@ int main() {
 Empezamos cargando los procesos en una cola de entrada, cada proceso tiene asignada la cantidad de memoria que necesita para poder ejecutarse. Iniciamos con toda nuestra memoria disponible la cual esta formada por bloques de memoria del mismo tamaño. Ahora le asignamos a los primeros procesos de la cola uno o varios bloques(segun se requiera), estos solo tomaran la memoria que necesiten y dejaran el restante libre formando un **"agujero"** en el que tendremos que revisar si cabe el siguiente proceso, de no ser el caso asignamos el siguiente bloque y dejaremos el agujero vacio. Este procedimiento continuara hasta que el siguiente proceso de la cola no quepa en el ultimo bloque o agujero disponible.
 Entonces revisaremos los agujeros que hemos dejado atras y basado en el algoritmo del **primer ajuste** buscaremos al primero lo suficientemente grande como para cargar el proceso. Si logramos encontrar el agujero entonces cargaremos el proceso y si sobra memoria esta se convertira en un nuevo agujero, si el nuevo agujero se encuentren adyacente a otro estos se conbinaran formando uno de mayor tamaño. 
 En caso de no encontrar un agujero con la memoria suficiente procederemos a recorrer la cola en busca de un proceso que requiera de menos memoria y revisaremos nuevamente los agujeros asignandole uno para despues realizar la carga. Ya sea un exito o no seguiremos comparando los procesos de la cola con los agujeros restantes, realizaremos las cargas correspondientes y cuando hayamos comparado todos los procesos solo nos quedara esperar a que algun proceso termine su ejecucion liberando espacio y generando nuevos agujeros en los que podremos cargar nuevos procesos siguiendo el procedimiento anterior.
-</br><br>
+
+</br>
 
 ### 3.3 Organización de memoria virtual
 
@@ -338,16 +340,16 @@ Y usa 2 posibles estructuras de datos:
 Cada dirección lógica contiene 2 cosas: el número de página y el desplazamiento.
 
 ##### Ventajas
-Los procesos pueden albergar distintas posiciones de memoria, pudiendo ser desplazados sin problema. Esto ofrece versatilidad.
+* Los procesos pueden albergar distintas posiciones de memoria, pudiendo ser desplazados sin problema. Esto ofrece versatilidad.
 
-En segundo lugar, no existen conflictos entre procesos que quieren acceder a ciertas posiciones de memorias. Es decir, no se da el caso de que un proceso acceda a una posición de memoria de otro proceso.
+* En segundo lugar, no existen conflictos entre procesos que quieren acceder a ciertas posiciones de memorias. Es decir, no se da el caso de que un proceso acceda a una posición de memoria de otro proceso.
 
 ##### Desventajas
-El costo del hardware y software se incrementan, por la nueva información que debe manejarse y el mecanismo de traducción de direcciones necesarias, se consume mucho mas recurso e memoria, tiempo en la CPU para su implantación.
+* El costo del hardware y software se incrementan, por la nueva información que debe manejarse y el mecanismo de traducción de direcciones necesarias, se consume mucho mas recurso e memoria, tiempo en la CPU para su implantación.
 
-Se deben reservar áreas de memoria para las PMT de los procesos, al no ser fijas el tamaño de estas se crea un problema semejante al de los programas.
+* Se deben reservar áreas de memoria para las PMT de los procesos, al no ser fijas el tamaño de estas se crea un problema semejante al de los programas.
 
-Aparece el problema de fragmentación interna. La fragmentación interna es un fenómeno que ocurre en computación cuando se asigna más espacio de memoria del que se necesita, lo que deja espacio sin utilizar dentro de los bloques asignados.
+* Aparece el problema de fragmentación interna. La fragmentación interna es un fenómeno que ocurre en computación cuando se asigna más espacio de memoria del que se necesita, lo que deja espacio sin utilizar dentro de los bloques asignados.
 
 #### Segmentación
 
@@ -360,35 +362,123 @@ La segmentación de un programa la realiza el compilador y en ella cada direcci�
 Una de las implementaciones más obvias y directas de un espacio de memoria segmentado es asignar un segmento distinto a cada una de las secciones del espacio en memoria de un proceso. La segmentación también ayuda a incrementar la modularidad de un programa.
 
 ##### Ventajas
-El programador puede conocer las unidades lógicas de su programa.
+* El programador puede conocer las unidades lógicas de su programa.
 
-Es posible compilar módulos separados como segmentos el enlace entre los segmentos puede suponer hasta tanto se haga una referencia entre segmentos.
+* Es posible compilar módulos separados como segmentos el enlace entre los segmentos puede suponer hasta tanto se haga una referencia entre segmentos.
 
-Es fácil compartir segmentos.
+* Es fácil compartir segmentos.
 
-Existe la posibilidad de definir segmentos que aun no existan.
+* Existe la posibilidad de definir segmentos que aun no existan.
 
-La compartición de segmentos permite ahorrar memoria.
+* La compartición de segmentos permite ahorrar memoria.
 
 ##### Desventajas
-Hay un incremento en el costo del hardware y   software para llevar a cabo la implantación, asi como mayor recurso de consumo de memoria, tiempo de CPU.
+* Hay un incremento en el costo del hardware y   software para llevar a cabo la implantación, asi como mayor recurso de consumo de memoria, tiempo de CPU.
 
-Se compila el manejo de memoria virtual, ya que los discos almacenan información en bloques de tamaños fijos.
+* Se compila el manejo de memoria virtual, ya que los discos almacenan información en bloques de tamaños fijos.
 
-No se puede garantizar que al salir de un segmento de la memoria este pueda ser traído fácilmente de nuevo,ya que sera necesario  encontrar nuevamente un área de memoria libre ajustada a su tamaño.
+* No se puede garantizar que al salir de un segmento de la memoria este pueda ser traído fácilmente de nuevo,ya que sera necesario  encontrar nuevamente un área de memoria libre ajustada a su tamaño.
 
-Aparece el problema de la fracmentacion externa. La fragmentación externa es un problema informático que se produce cuando la memoria libre se divide en bloques pequeños y se intercala con la memoria asignada.
+* Aparece el problema de la fracmentacion externa. La fragmentación externa es un problema informático que se produce cuando la memoria libre se divide en bloques pequeños y se intercala con la memoria asignada.
 
 **2. Escribe un programa que simule una tabla de páginas para procesos con acceso aleatorio 
 a memoria virtual.**
+</br>
 
+### 3.4 Administración de memoria virtual
 
+**1. Escribe un código que implemente el algoritmo de reemplazo de página
+ "Least Recently Used" (LRU).**
 
+**2. Diseña un diagrama que represente el proceso de traducción de direc
+ciones virtuales a físicas en un sistema con memoria virtual.**
+</br>
 
+![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/3.4_2.jpeg)
+</br>
 
+### Integración
+
+**1. Analiza un sistema operativo moderno (por ejemplo, Linux o Windows)
+ e identifica cómo administra la memoria virtual.**
+
+La administración de memoria virtual en Windows se realiza mediante el administrador de memoria, 
+un componente del kernel.
+
+La memoria virtual es una técnica que permite a un sistema operativo utilizar más memoria que la RAM física
+instalada en un ordenador. Funciona mediante la creación de un espacio de direcciones virtuales que se asigna 
+a la memoria real y el espacio en disco disponible, e intercambiando páginas de datos entre ellos según sea necesario.
+
+El espacio de direcciones virtuales es el rango de direcciones de memoria que un proceso puede utilizar, 
+independientemente del tamaño real de la RAM. El sistema operativo administra el espacio de direcciones virtuales 
+y lo divide en unidades de tamaño fijo llamadas páginas. Cada página tiene un marco de página correspondiente 
+en la memoria física o en el disco, donde se almacenan los datos reales. El sistema operativo mantiene una 
+estructura de datos llamada tabla de páginas, que registra la asignación entre las direcciones virtuales y 
+físicas de cada página.
+
+El intercambio de páginas es el proceso de mover páginas entre la memoria física y el disco, en función de la 
+demanda y la disponibilidad de recursos de memoria. El sistema operativo utiliza un algoritmo llamado política
+de reemplazo de páginas, que decide qué páginas intercambiar dentro y fuera, en función de factores como la 
+frecuencia de acceso, la antigüedad del uso y la prioridad del proceso. El sistema operativo también utiliza 
+un mecanismo llamado controlador de errores de página, que detecta cuando un proceso intenta acceder a una página 
+que no está en la memoria física y desencadena el intercambio de páginas en consecuencia.
+
+En el momento en que en el sistema empieza a escasear la memoria, se crea un fichero SWAP (intercambio) en el
+disco que sirve como ampliación auxiliar de memoria. En el caso de Windows, cuando tenemos muchas aplicaciones
+en funcionamiento y la memoria RAM se agota, el sistema se apoya en el fichero SWAP para realizar movimientos de paginas
+desde el disco duro a la RAM y viceversa, a esto se le conoce como SWAPPING. De ese modo crean espacios en memoria 
+física para ir ejecutando las órdenes. Esto, evidentemente, hace que el sistema vaya más lento.
+
+La memoria virtual también tiene algunos desafíos y compensaciones con los que el sistema operativo y las aplicaciones
+tienen que lidiar. Uno de los principales desafíos es la sobrecarga de rendimiento del intercambio de páginas,
+que implica operaciones de E/S de disco que son más lentas que el acceso a la memoria. El sistema operativo 
+tiene que equilibrar el equilibrio entre minimizar los errores de página, que reducen la velocidad de ejecución, 
+y maximizar la utilización de la memoria, lo que aumenta el nivel de multiprogramación. 
+Otro desafío es la complejidad y el costo de implementar y mantener el sistema de memoria virtual, que requiere 
+soporte de hardware, diseño de software y estructuras de datos. Las aplicaciones también tienen que adaptarse al 
+entorno de memoria virtual, evitando la asignación excesiva de memoria, la fragmentación y el thrashing.
+
+**2. Realiza una simulación en cualquier lenguaje de programación que
+ emule el swapping de procesos en memoria virtual.**
+
+</br>
+
+## Administración de Entrada/Salida
+</br>
+
+### 4.1 Dispositivos y manejadores de dispositivos
+
+**1. Explica la diferencia entre dispositivos de bloque y dispositivos de
+ carácter. Da un ejemplo de cada uno.**
+
+Los dispositivos de bloque y los dispositivos de carácter son dos tipos de dispositivos de E/S (entrada/salida) 
+en sistemas informáticos. 
+
+##### Dispositivos de Bloque:
+
+* Trabajan con datos en bloques de tamaño fijo.
+  
+* La E/S se realiza en bloques de datos completos, lo que permite una transferencia eficiente de grandes 
+  cantidades de datos.
+
+* Suelen ser más adecuados para el almacenamiento de datos a largo plazo y la transferencia de archivos grandes.
  
+* Ejemplos comunes incluyen discos duros, SSDs (Unidades de Estado Sólido) y cintas magnéticas.
 
+##### Dispositivos de Carácter:
 
+* Trabajan con datos en forma de caracteres individuales.
+
+* La E/S se realiza carácter por carácter, lo que los hace más adecuados para la interacción humana y la comunicación en tiempo real.
+
+* Suelen ser más utilizados para la entrada de datos, la visualización de información y la comunicación con dispositivos externos.
+
+* Ejemplos incluyen teclados, ratones, impresoras y puertos serie.
+  
+** 2. Diseña un programa que implemente un manejador de dispositivos sen
+cillo para un dispositivo virtual de entrada.**
+
+</br>
 
 
 
