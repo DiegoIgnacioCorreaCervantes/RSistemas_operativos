@@ -718,7 +718,21 @@ y muestra cómo se realiza la comunicación entre ellos.**
 **1. Explica cómo los sistemas operativos modernos optimizan las operaciones de entrada/salida
 con el uso de memoria caché.**
 
+Cuando el procesador necesita acceder a una información para hacer sus tareas, esta información es pedida a la 
+RAM que la proporciona al procesador tan rápido como puede. Este proceso no es instantáneo, sino que se necesita 
+un tiempo, varios ciclos de reloj dependiendo de la latencia, solo son unos nanosegundos, pero, aunque a nosotros 
+nos parezca que no es nada en realidad es un mundo y mientras el procesador está esperando se pierde la oportunidad 
+de hacer otros cálculos y operaciones.
 
+Para solucionar este problema se creó la memoria caché, esta no es más que una pequeña cantidad de memoria que 
+está dentro del procesador, la finalidad de la memoria caché es hacer que el acceso a la información por parte 
+del procesador sea lo más rápida posible. La memoria caché está dentro del procesador por lo que la información 
+tiene que viajar muy poco hasta llegar al lugar donde se procesa, por lo que el tiempo que se necesita para 
+acceder a ella es mucho más reducido que en el caso de la RAM.
+
+Por lo tanto la memoria caché es una capa de almacenamiento de alta velocidad que reduce las operaciones de E/S 
+al almacenar los datos más utilizados en una memoria más rápida. Esto permite que las solicitudes futuras de 
+esos datos se atiendan más rápido.
 
 
 
