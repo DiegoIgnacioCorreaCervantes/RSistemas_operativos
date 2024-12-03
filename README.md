@@ -326,6 +326,7 @@ La tabla de páginas es el mapeo resultante entre páginas lógicas y físicas. 
 La paginación consta de dos funciones principales:
 
 **1. Transforma una dirección virtual a física.**
+
 **2. Transfiere páginas de la memoria secundaria a la memoria principal y viceversa.**
 
 Y usa 2 posibles estructuras de datos:
@@ -377,6 +378,11 @@ Se compila el manejo de memoria virtual, ya que los discos almacenan informació
 No se puede garantizar que al salir de un segmento de la memoria este pueda ser traído fácilmente de nuevo,ya que sera necesario  encontrar nuevamente un área de memoria libre ajustada a su tamaño.
 
 Aparece el problema de la fracmentacion externa. La fragmentación externa es un problema informático que se produce cuando la memoria libre se divide en bloques pequeños y se intercala con la memoria asignada.
+
+**2. Escribe un programa que simule una tabla de páginas para procesos con acceso aleatorio 
+a memoria virtual.**
+
+
 
 
 
