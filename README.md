@@ -3,7 +3,329 @@
 
 #### Alumno: Correa Cervantes Diego Ignacio, Grupo C
 ---
+## Pruebas de escritorio
 
+### Cola con prioridad
+
+|        |                                                                                                                    |    |          |         |       |         |               |        | nodo1 |           |           | nodo2 |           |           |
+|--------|--------------------------------------------------------------------------------------------------------------------|----|----------|---------|-------|---------|---------------|--------|-------|-----------|-----------|-------|-----------|-----------|
+| L      | Sentencia                                                                                                          | op | contador | *cabeza | temp  | maxNodo | maxNodoPrevio | previo | valor | prioridad | siguiente | valor | prioridad | siguiente |
+| 86     |  Inicia main                                                                                                       |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 87     |  inicializar funcion srand para general pseudoaleatorios                                                           |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 88     |  nodo* cabeza = Null;                                                                                              |    |          | Null    |       |         |               |        |       |           |           |       |           |           |
+| 89     |  int op = 0;                                                                                                       | 0  |          |         |       |         |               |        |       |           |           |       |           |           |
+| 91     |  inicia ciclo de control --> do while(op!=4)                                                                       |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 92-95  |  Se imprimen las opciones a seleccionar en consola                                                                 |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 96     |  printf(""Seleccione una opción: ""); --> usuario ingresa 1                                                        |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 97     |  scanf(""%d"", &op);                                                                                               | 1  |          |         |       |         |               |        |       |           |           |       |           |           |
+| 99     |  switch (op) {                                                                                                     |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 100    |  case: 1 --> (1.-Generar proceso)                                                                                  |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 101    |  insertar_final(&cabeza);                                                                                          |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 28     |  inicia metodo --> void insertar_final(nodo** cabeza) {                                                            |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 29     |  nodo* nuevoNodo = genera_proceso();                                                                               |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 15     |  inicia metodo  --> nodo* genera_proceso() {                                                                       |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 16     |  static int contador = 1;                                                                                          |    | 0        |         |       |         |               |        |       |           |           |       |           |           |
+| 17     |  nodo* nuevo = (nodo*)malloc(sizeof(nodo));                                                                        |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 22     |  nuevo->valor = contador++;                                                                                        |    | 1        |         |       |         |               |        | 1     |           |           |       |           |           |
+| 23     |  nuevo->prioridad = numero_aleatorio();                                                                            |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 11     |  inicia metodo  --> int numero_aleatorio() {                                                                       |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 12     |  return (rand() % 4) + 1;                                                                                          |    |          |         |       |         |               |        |       | 1         |           |       |           |           |
+| 13     |  termina metodo --> numero_aleatorio                                                                               |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 24     |  nuevo->siguiente = NULL;                                                                                          |    |          |         |       |         |               |        |       |           | Null      |       |           |           |
+| 25     |  return nuevo;                                                                                                     |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 26     |  termina metodo  --> genera_proceso                                                                                |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 31     |  if (*cabeza == NULL) {  --> *cabeza = Null --> true                                                               |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 32     |  *cabeza = nuevoNodo;                                                                                              |    |          | nodo1   |       |         |               |        |       |           |           |       |           |           |
+| 40     |  termina metodo --> insertar_final                                                                                 |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 102    |  break; --> termina swich(op)                                                                                      |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 115    |   } while (op != 4); --> op = 1 --> true                                                                           |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 92-95  |  Se imprimen las opciones a seleccionar en consola                                                                 |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 96     |  printf(""Seleccione una opción: ""); --> usuario ingresa 1                                                        |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 97     |  scanf(""%d"", &op);                                                                                               | 1  |          |         |       |         |               |        |       |           |           |       |           |           |
+| 99     |  switch (op) {                                                                                                     |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 100    |  case: 1 --> (1.-Generar proceso)                                                                                  |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 101    |  insertar_final(&cabeza);                                                                                          |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 28     |  inicia metodo --> void insertar_final(nodo** cabeza) {                                                            |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 29     |  nodo* nuevoNodo = genera_proceso();                                                                               |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 15     |  inicia metodo  --> nodo* genera_proceso() {                                                                       |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 16     |  static int contador = 1;                                                                                          |    | 1        |         |       |         |               |        |       |           |           |       |           |           |
+| 17     |  nodo* nuevo = (nodo*)malloc(sizeof(nodo));                                                                        |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 22     |  nuevo->valor = contador++;                                                                                        |    | 2        |         |       |         |               |        |       |           |           | 2     |           |           |
+| 23     |  nuevo->prioridad = numero_aleatorio();                                                                            |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 11     |  inicia metodo  --> int numero_aleatorio() {                                                                       |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 12     |  return (rand() % 4) + 1;                                                                                          |    |          |         |       |         |               |        |       |           |           |       | 2         |           |
+| 13     |  termina metodo --> numero_aleatorio                                                                               |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 24     |  nuevo->siguiente = NULL;                                                                                          |    |          |         |       |         |               |        |       |           |           |       |           | Null      |
+| 25     |  return nuevo;                                                                                                     |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 26     |  termina metodo  --> genera_proceso                                                                                |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 31     |  if (*cabeza == NULL) {  --> *cabeza = nodo1 --> false                                                             |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 33     |  } else {                                                                                                          |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 34     |  nodo* temp = *cabeza;                                                                                             |    |          |         | nodo1 |         |               |        |       |           |           |       |           |           |
+| 35     |  while (temp->siguiente != NULL) { --> temp->siguiente = Null --> false                                            |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 38     |  temp->siguiente = nuevoNodo;                                                                                      |    |          |         |       |         |               |        |       |           | nodo2     |       |           |           |
+| 40     |  termina metodo --> insertar_final                                                                                 |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 102    |  break; --> termina swich(op)                                                                                      |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 115    |   } while (op != 4); --> op = 1 --> true                                                                           |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 92-95  |  Se imprimen las opciones a seleccionar en consola                                                                 |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 96     |  printf(""Seleccione una opción: ""); --> usuario ingresa 2                                                        |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 97     |  scanf(""%d"", &op);                                                                                               | 2  |          |         |       |         |               |        |       |           |           |       |           |           |
+| 99     |  switch (op) {                                                                                                     |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 103    |  case: 2 --> (2.-Atiende proceso)                                                                                  |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 104    |  atender_prioridad_mas_alta(&cabeza);                                                                              |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 52     |  inicia metodo --> void atender_prioridad_mas_alta(nodo** cabeza) {                                                |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 53     |  if (*cabeza == NULL) { --> *cabeza = nodo1 --> false                                                              |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 58     |  nodo* temp = *cabeza;                                                                                             |    |          |         | nodo1 |         |               |        |       |           |           |       |           |           |
+| 59     |  nodo* maxNodo = temp;                                                                                             |    |          |         |       | nodo1   |               |        |       |           |           |       |           |           |
+| 60     |  nodo* maxNodoPrevio = NULL;                                                                                       |    |          |         |       |         | Null          |        |       |           |           |       |           |           |
+| 61     |  nodo* previo = NULL;                                                                                              |    |          |         |       |         |               | Null   |       |           |           |       |           |           |
+| 64     |  while (temp != NULL) { --> temp = nodo1 --> true                                                                  |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 65     |  if (temp->prioridad > maxNodo->prioridad) { --> temp->prioridad(1) = maxNodo->prioridad(1) --> false              |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 69     |  previo = temp;                                                                                                    |    |          |         |       |         |               | nodo1  |       |           |           |       |           |           |
+| 70     |  temp = temp->siguiente;                                                                                           |    |          |         | nodo2 |         |               |        |       |           |           |       |           |           |
+| 64     |  while (temp != NULL) { --> temp = nodo2 --> true                                                                  |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 65     |  if (temp->prioridad > maxNodo->prioridad) { --> temp->prioridad(2) > maxNodo->prioridad(1) --> true               |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 66     |  maxNodo = temp;                                                                                                   |    |          |         |       | nodo2   |               |        |       |           |           |       |           |           |
+| 67     |  maxNodoPrevio = previo;                                                                                           |    |          |         |       |         | nodo1         |        |       |           |           |       |           |           |
+| 69     |  previo = temp;                                                                                                    |    |          |         |       |         |               | nodo2  |       |           |           |       |           |           |
+| 70     |  temp = temp->siguiente;                                                                                           |    |          |         | Null  |         |               |        |       |           |           |       |           |           |
+| 64     |  while (temp != NULL) { --> temp = Null --> false                                                                  |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 74     |  printf(""Atendiendo proceso %d con prioridad %d\n"", maxNodo->valor, maxNodo->prioridad);                         |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 77     |  if (maxNodoPrevio == NULL) { --> maxNodoPrevio = nodo1 --> false                                                  |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 79     |  } else {                                                                                                          |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 80     |  maxNodoPrevio->siguiente = maxNodo->siguiente;                                                                    |    |          |         |       |         |               |        |       |           | Null      |       |           |           |
+| 83     |  free(maxNodo);                                                                                                    |    |          |         |       |         |               |        |       |           |           | free  | free      | free      |
+| 84     |  termina metodo --> atender_prioridad_mas_alta                                                                     |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 105    |  break; --> termina swich(op)                                                                                      |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 115    |   } while (op != 4); --> op = 2 --> true                                                                           |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 92-95  |  Se imprimen las opciones a seleccionar en consola                                                                 |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 96     |  printf(""Seleccione una opción: ""); --> usuario ingresa 3                                                        |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 97     |  scanf(""%d"", &op);                                                                                               | 3  |          |         |       |         |               |        |       |           |           |       |           |           |
+| 99     |  switch (op) {                                                                                                     |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 106    |  case: 3 --> (3.-Mostrar lista de procesos)                                                                        |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 107    |  imprimir_lista(cabeza);                                                                                           |    |          | nodo1   |       |         |               |        |       |           |           |       |           |           |
+| 42     |  inicia metodo --> void imprimir_lista(nodo* cabeza) {                                                             |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 43     |  nodo* temp = cabeza;                                                                                              |    |          |         | nodo1 |         |               |        |       |           |           |       |           |           |
+| 44     |  while (temp != NULL) { --> temp = nodo1 --> true                                                                  |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 45     |  printf(""%p [Proceso %d] (Prioridad %d) [direct %p] -> "", temp, temp->valor, temp->prioridad, &temp->prioridad); |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 46     |  temp = temp->siguiente;                                                                                           |    |          |         | Null  |         |               |        |       |           |           |       |           |           |
+| 44     |  while (temp != NULL) { --> temp = Null --> false                                                                  |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 49     |  printf(""NULL\n"");                                                                                               |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 50     |  termina metodo --> imprimir_lista                                                                                 |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 108    |  break; --> termina swich(op)                                                                                      |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 115    |   } while (op != 4); --> op = 3 --> true                                                                           |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 92-95  |  Se imprimen las opciones a seleccionar en consola                                                                 |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 96     |  printf(""Seleccione una opción: ""); --> usuario ingresa 4                                                        |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 97     |  scanf(""%d"", &op);                                                                                               | 4  |          |         |       |         |               |        |       |           |           |       |           |           |
+| 99     |  switch (op) {                                                                                                     |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 109    |  case: 4 --> (4.-Salir)                                                                                            |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 110    |  printf(""Saliendo...\n"");                                                                                        |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 111    |  break; --> termina swich(op)                                                                                      |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 115    |  Termina ciclo de control --> } while (op != 4); --> op = 4 --> false                                              |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 117    | return 0;                                                                                                          |    |          |         |       |         |               |        |       |           |           |       |           |           |
+| 118    |  Termina main, fin del programa                                                                                    |    |          |         |       |         |               |        |       |           |           |       |           |           |
+</br>
+
+</br>
+
+### Exclusion mutua
+
+#### PE_ADekker
+
+|    |                                                                                      |   |       |       | interesado[] |       |        |       | nodo1 |           |
+|----|--------------------------------------------------------------------------------------|---|-------|-------|--------------|-------|--------|-------|-------|-----------|
+| L  | Sentencia                                                                            | i | valor | turno | [ 0 ]      | [ 1 ]      | cabeza | temp  | valor | siguiente |
+| 11 |  nodo* cabeza = NULL;                                                                |   |       |       |              |       | Null   |       |       |           |
+| 13 |  int turno = 0;                                                                      |   |       | 0     |              |       |        |       |       |           |
+| 14 |  int interesado[2] = {0, 0};                                                         |   |       |       | 0            | 0     |        |       |       |           |
+| 77 |  Inicia int main() {                                                                 |   |       |       |              |       |        |       |       |           |
+| 78 |  declarar  hilos --> pthread_t hilo_productor, hilo_consumidor;                      |   |       |       |              |       |        |       |       |           |
+| 80 |  crear hilo_productor --> pthread_create(&hilo_productor, NULL, productor, NULL);    |   |       |       |              |       |        |       |       |           |
+| 81 |  crear hilo_consumidor --> pthread_create(&hilo_consumidor, NULL, consumidor, NULL); |   |       |       |              |       |        |       |       |           |
+| 83 |  esperar a que finalice hilo_productor --> pthread_join(hilo_productor, NULL);       |   |       |       |              |       |        |       |       |           |
+| 36 |  inicia funcion  --> void* productor(void* arg) {                                    |   |       |       |              |       |        |       |       |           |
+| 37 |  inicio ciclo for --> for (int i = 0; i < 5; i++) {                                  |   |       |       |              |       |        |       |       |           |
+| 37 |  int i = 0                                                                           | 0 |       |       |              |       |        |       |       |           |
+| 37 |  i < 5 --> i=0 --> true                                                              |   |       |       |              |       |        |       |       |           |
+| 38 |  interesado[0] = 1;                                                                  |   |       |       | 1            | 0     |        |       |       |           |
+| 39 |  while (interesado[1]) { --> interesado[1] = 0 --> false                             |   |       |       |              |       |        |       |       |           |
+| 47 |  insertar_final(i + 1);                                                              |   |       |       |              |       |        |       |       |           |
+| 16 |  inicia metodo --> void insertar_final(int valor) {                                  |   |       |       |              |       |        |       |       |           |
+| 16 |  int valor;                                                                          |   | 1     |       |              |       |        |       |       |           |
+| 17 |  nodo* nuevo = (nodo*)malloc(sizeof(nodo));                                          |   |       |       |              |       |        |       |       |           |
+| 18 |  nuevo->valor = valor;                                                               |   |       |       |              |       |        |       | 1     |           |
+| 19 |  nuevo->siguiente = cabeza;                                                          |   |       |       |              |       |        |       |       | Null      |
+| 20 |  cabeza = nuevo;                                                                     |   |       |       |              |       | nodo1  |       |       |           |
+| 21 |  printf(""Productor produjo: %d\n"", valor);                                         |   | 1     |       |              |       |        |       |       |           |
+| 22 |  termina metodo  --> insertar_final                                                  |   |       |       |              |       |        |       |       |           |
+| 49 |  turno = 1;                                                                          |   |       | 1     |              |       |        |       |       |           |
+| 50 |  interesado[0] = 0;                                                                  |   |       |       | 0            |       |        |       |       |           |
+| 51 |  sleep(1); --> tiempo de espera permite al hilo_consumidor trabajar                  |   |       |       |              |       |        |       |       |           |
+| 84 |  esperar a que finalice hilo_consumidor --> pthread_join(hilo_consumidor, NULL);     |   |       |       |              |       |        |       |       |           |
+| 57 |  inicia funcion --> void* consumidor(void* arg) {                                    |   |       |       |              |       |        |       |       |           |
+| 58 |  inicio ciclo for --> for (int i = 0; i < 5; i++) {                                  |   |       |       |              |       |        |       |       |           |
+| 58 |  int i = 0                                                                           | 0 |       |       |              |       |        |       |       |           |
+| 58 |  i < 5 --> i=0 --> true                                                              |   |       |       |              |       |        |       |       |           |
+| 59 |  interesado[1] = 1;                                                                  |   |       |       |              | 1     |        |       |       |           |
+| 60 |  while (interesado[0]) { --> interesado[0] = 0 --> false                             |   |       |       |              |       |        |       |       |           |
+| 68 |  atender_proceso();                                                                  |   |       |       |              |       |        |       |       |           |
+| 24 |  inicia metodo --> void atender_proceso() {                                          |   |       |       |              |       |        |       |       |           |
+| 25 |  if (cabeza != NULL) { --> cabeza = nodo1 --> true                                   |   |       |       |              |       |        |       |       |           |
+| 26 |  nodo* temp = cabeza;                                                                |   |       |       |              |       |        | nodo1 |       |           |
+| 27 |  cabeza = cabeza->siguiente;                                                         |   |       |       |              |       | Null   |       |       |           |
+| 28 |  printf(""Consumidor atendió: %d\n"", temp->valor);                                  |   |       |       |              |       |        |       |       |           |
+| 29 |  free(temp);                                                                         |   |       |       |              |       |        |       | free  | free      |
+| 33 |  termina metodo  --> atender_proceso                                                 |   |       |       |              |       |        |       |       |           |
+| 70 |  turno = 0;                                                                          |   |       | 0     |              |       |        |       |       |           |
+| 71 |  interesado[1] = 0;                                                                  |   |       |       |              | 0     |        |       |       |           |
+| 72 |  sleep(2);  tiempo de espera permite al hilo_productor trabajar                      |   |       |       |              |       |        |       |       |           |
+| 83 |  esperar a que finalice hilo_productor --> pthread_join(hilo_productor, NULL);       |   |       |       |              |       |        |       |       |           |
+| 37 |  i++                                                                                 | 1 |       |       |              |       |        |       |       |           |
+| 37 |  i < 5 --> i=1 --> true                                                              |   |       |       |              |       |        |       |       |           |
+| 38 |  interesado[0] = 1;                                                                  |   |       |       | 1            |       |        |       |       |           |
+| 39 |  while (interesado[1]) { --> interesado[1] = 0 --> false                             |   |       |       |              |       |        |       |       |           |
+| 47 |  insertar_final(i + 1);                                                              |   |       |       |              |       |        |       |       |           |
+| 16 |  inicia metodo --> void insertar_final(int valor) {                                  |   |       |       |              |       |        |       |       |           |
+| 16 |  int valor;                                                                          |   | 2     |       |              |       |        |       |       |           |
+| 17 |  nodo* nuevo = (nodo*)malloc(sizeof(nodo));                                          |   |       |       |              |       |        |       |       |           |
+| 18 |  nuevo->valor = valor;                                                               |   |       |       |              |       |        |       | 2     |           |
+| 19 |  nuevo->siguiente = cabeza;                                                          |   |       |       |              |       |        |       |       | Null      |
+| 20 |  cabeza = nuevo;                                                                     |   |       |       |              |       | nodo1  |       |       |           |
+| 21 |  printf(""Productor produjo: %d\n"", valor);                                         |   | 2     |       |              |       |        |       |       |           |
+| 22 |  termina metodo  --> insertar_final                                                  |   |       |       |              |       |        |       |       |           |
+| 49 |  turno = 1;                                                                          |   |       | 1     |              |       |        |       |       |           |
+| 50 |  interesado[0] = 0;                                                                  |   |       |       | 0            |       |        |       |       |           |
+| 51 |  sleep(1); --> tiempo de espera permite al hilo_consumidor trabajar                  |   |       |       |              |       |        |       |       |           |
+| 84 |  esperar a que finalice hilo_consumidor --> pthread_join(hilo_consumidor, NULL);     |   |       |       |              |       |        |       |       |           |
+| 58 |  i++                                                                                 | 1 |       |       |              |       |        |       |       |           |
+| 58 |  i < 5 --> i=1 --> true                                                              |   |       |       |              |       |        |       |       |           |
+| 59 |  interesado[1] = 1;                                                                  |   |       |       |              | 1     |        |       |       |           |
+| 60 |  while (interesado[0]) { --> interesado[0] = 0 --> false                             |   |       |       |              |       |        |       |       |           |
+| 68 |  atender_proceso();                                                                  |   |       |       |              |       |        |       |       |           |
+| 24 |  inicia metodo --> void atender_proceso() {                                          |   |       |       |              |       |        |       |       |           |
+| 25 |  if (cabeza != NULL) { --> cabeza = nodo1 --> true                                   |   |       |       |              |       |        |       |       |           |
+| 26 |  nodo* temp = cabeza;                                                                |   |       |       |              |       |        | nodo1 |       |           |
+| 27 |  cabeza = cabeza->siguiente;                                                         |   |       |       |              |       | Null   |       |       |           |
+| 28 |  printf(""Consumidor atendió: %d\n"", temp->valor);                                  |   |       |       |              |       |        |       |       |           |
+| 29 |  free(temp);                                                                         |   |       |       |              |       |        |       | free  | free      |
+| 33 |  termina metodo  --> atender_proceso                                                 |   |       |       |              |       |        |       |       |           |
+| 70 |  turno = 0;                                                                          |   |       | 0     |              |       |        |       |       |           |
+| 71 |  interesado[1] = 0;                                                                  |   |       |       |              | 0     |        |       |       |           |
+| 72 |  sleep(2);  tiempo de espera permite al hilo_productor trabajar                      |   |       |       |              |       |        |       |       |           |
+| 37 |  i++                                                                                 | 2 |       |       |              |       |        |       |       |           |
+| 37 |  i < 5 --> i=2 --> true                                                              |   |       |       |              |       |        |       |       |           |
+| 38 |  interesado[0] = 1;                                                                  |   |       |       | 1            |       |        |       |       |           |
+| 39 |  while (interesado[1]) { --> interesado[1] = 0 --> false                             |   |       |       |              |       |        |       |       |           |
+| 47 |  insertar_final(i + 1);                                                              |   |       |       |              |       |        |       |       |           |
+| 16 |  inicia metodo --> void insertar_final(int valor) {                                  |   |       |       |              |       |        |       |       |           |
+| 16 |  int valor;                                                                          |   | 3     |       |              |       |        |       |       |           |
+| 17 |  nodo* nuevo = (nodo*)malloc(sizeof(nodo));                                          |   |       |       |              |       |        |       |       |           |
+| 18 |  nuevo->valor = valor;                                                               |   |       |       |              |       |        |       | 3     |           |
+| 19 |  nuevo->siguiente = cabeza;                                                          |   |       |       |              |       |        |       |       | Null      |
+| 20 |  cabeza = nuevo;                                                                     |   |       |       |              |       | nodo1  |       |       |           |
+| 21 |  printf(""Productor produjo: %d\n"", valor);                                         |   | 3     |       |              |       |        |       |       |           |
+| 22 |  termina metodo  --> insertar_final                                                  |   |       |       |              |       |        |       |       |           |
+| 49 |  turno = 1;                                                                          |   |       | 1     |              |       |        |       |       |           |
+| 50 |  interesado[0] = 0;                                                                  |   |       |       | 0            |       |        |       |       |           |
+| 51 |  sleep(1); --> tiempo de espera permite al hilo_consumidor trabajar                  |   |       |       |              |       |        |       |       |           |
+| 84 |  esperar a que finalice hilo_consumidor --> pthread_join(hilo_consumidor, NULL);     |   |       |       |              |       |        |       |       |           |
+| 58 |  i++                                                                                 | 2 |       |       |              |       |        |       |       |           |
+| 58 |  i < 5 --> i=2 --> true                                                              |   |       |       |              |       |        |       |       |           |
+| 59 |  interesado[1] = 1;                                                                  |   |       |       |              | 1     |        |       |       |           |
+| 60 |  while (interesado[0]) { --> interesado[0] = 0 --> false                             |   |       |       |              |       |        |       |       |           |
+| 68 |  atender_proceso();                                                                  |   |       |       |              |       |        |       |       |           |
+| 24 |  inicia metodo --> void atender_proceso() {                                          |   |       |       |              |       |        |       |       |           |
+| 25 |  if (cabeza != NULL) { --> cabeza = nodo1 --> true                                   |   |       |       |              |       |        |       |       |           |
+| 26 |  nodo* temp = cabeza;                                                                |   |       |       |              |       |        | nodo1 |       |           |
+| 27 |  cabeza = cabeza->siguiente;                                                         |   |       |       |              |       | Null   |       |       |           |
+| 28 |  printf(""Consumidor atendió: %d\n"", temp->valor);                                  |   |       |       |              |       |        |       |       |           |
+| 29 |  free(temp);                                                                         |   |       |       |              |       |        |       | free  | free      |
+| 33 |  termina metodo  --> atender_proceso                                                 |   |       |       |              |       |        |       |       |           |
+| 70 |  turno = 0;                                                                          |   |       | 0     |              |       |        |       |       |           |
+| 71 |  interesado[1] = 0;                                                                  |   |       |       |              | 0     |        |       |       |           |
+| 72 |  sleep(2);  tiempo de espera permite al hilo_productor trabajar                      |   |       |       |              |       |        |       |       |           |
+| 37 |  i++                                                                                 | 3 |       |       |              |       |        |       |       |           |
+| 37 |  i < 5 --> i=3 --> true                                                              |   |       |       |              |       |        |       |       |           |
+| 38 |  interesado[0] = 1;                                                                  |   |       |       | 1            |       |        |       |       |           |
+| 39 |  while (interesado[1]) { --> interesado[1] = 0 --> false                             |   |       |       |              |       |        |       |       |           |
+| 47 |  insertar_final(i + 1);                                                              |   |       |       |              |       |        |       |       |           |
+| 16 |  inicia metodo --> void insertar_final(int valor) {                                  |   |       |       |              |       |        |       |       |           |
+| 16 |  int valor;                                                                          |   | 4     |       |              |       |        |       |       |           |
+| 17 |  nodo* nuevo = (nodo*)malloc(sizeof(nodo));                                          |   |       |       |              |       |        |       |       |           |
+| 18 |  nuevo->valor = valor;                                                               |   |       |       |              |       |        |       | 4     |           |
+| 19 |  nuevo->siguiente = cabeza;                                                          |   |       |       |              |       |        |       |       | Null      |
+| 20 |  cabeza = nuevo;                                                                     |   |       |       |              |       | nodo1  |       |       |           |
+| 21 |  printf(""Productor produjo: %d\n"", valor);                                         |   | 4     |       |              |       |        |       |       |           |
+| 22 |  termina metodo  --> insertar_final                                                  |   |       |       |              |       |        |       |       |           |
+| 49 |  turno = 1;                                                                          |   |       | 1     |              |       |        |       |       |           |
+| 50 |  interesado[0] = 0;                                                                  |   |       |       | 0            |       |        |       |       |           |
+| 51 |  sleep(1); --> tiempo de espera permite al hilo_consumidor trabajar                  |   |       |       |              |       |        |       |       |           |
+| 84 |  esperar a que finalice hilo_consumidor --> pthread_join(hilo_consumidor, NULL);     |   |       |       |              |       |        |       |       |           |
+| 58 |  i++                                                                                 | 3 |       |       |              |       |        |       |       |           |
+| 58 |  i < 5 --> i=3 --> true                                                              |   |       |       |              |       |        |       |       |           |
+| 59 |  interesado[1] = 1;                                                                  |   |       |       |              | 1     |        |       |       |           |
+| 60 |  while (interesado[0]) { --> interesado[0] = 0 --> false                             |   |       |       |              |       |        |       |       |           |
+| 68 |  atender_proceso();                                                                  |   |       |       |              |       |        |       |       |           |
+| 24 |  inicia metodo --> void atender_proceso() {                                          |   |       |       |              |       |        |       |       |           |
+| 25 |  if (cabeza != NULL) { --> cabeza = nodo1 --> true                                   |   |       |       |              |       |        |       |       |           |
+| 26 |  nodo* temp = cabeza;                                                                |   |       |       |              |       |        | nodo1 |       |           |
+| 27 |  cabeza = cabeza->siguiente;                                                         |   |       |       |              |       | Null   |       |       |           |
+| 28 |  printf(""Consumidor atendió: %d\n"", temp->valor);                                  |   |       |       |              |       |        |       |       |           |
+| 29 |  free(temp);                                                                         |   |       |       |              |       |        |       | free  | free      |
+| 33 |  termina metodo  --> atender_proceso                                                 |   |       |       |              |       |        |       |       |           |
+| 70 |  turno = 0;                                                                          |   |       | 0     |              |       |        |       |       |           |
+| 71 |  interesado[1] = 0;                                                                  |   |       |       |              | 0     |        |       |       |           |
+| 72 |  sleep(2);  tiempo de espera permite al hilo_productor trabajar                      |   |       |       |              |       |        |       |       |           |
+| 37 |  i++                                                                                 | 4 |       |       |              |       |        |       |       |           |
+| 37 |  i < 5 --> i=4 --> true                                                              |   |       |       |              |       |        |       |       |           |
+| 38 |  interesado[0] = 1;                                                                  |   |       |       | 1            |       |        |       |       |           |
+| 39 |  while (interesado[1]) { --> interesado[1] = 0 --> false                             |   |       |       |              |       |        |       |       |           |
+| 47 |  insertar_final(i + 1);                                                              |   |       |       |              |       |        |       |       |           |
+| 16 |  inicia metodo --> void insertar_final(int valor) {                                  |   |       |       |              |       |        |       |       |           |
+| 16 |  int valor;                                                                          |   | 5     |       |              |       |        |       |       |           |
+| 17 |  nodo* nuevo = (nodo*)malloc(sizeof(nodo));                                          |   |       |       |              |       |        |       |       |           |
+| 18 |  nuevo->valor = valor;                                                               |   |       |       |              |       |        |       | 5     |           |
+| 19 |  nuevo->siguiente = cabeza;                                                          |   |       |       |              |       |        |       |       | Null      |
+| 20 |  cabeza = nuevo;                                                                     |   |       |       |              |       | nodo1  |       |       |           |
+| 21 |  printf(""Productor produjo: %d\n"", valor);                                         |   | 5     |       |              |       |        |       |       |           |
+| 22 |  termina metodo  --> insertar_final                                                  |   |       |       |              |       |        |       |       |           |
+| 49 |  turno = 1;                                                                          |   |       | 1     |              |       |        |       |       |           |
+| 50 |  interesado[0] = 0;                                                                  |   |       |       | 0            |       |        |       |       |           |
+| 51 |  sleep(1); --> tiempo de espera permite al hilo_consumidor trabajar                  |   |       |       |              |       |        |       |       |           |
+| 84 |  esperar a que finalice hilo_consumidor --> pthread_join(hilo_consumidor, NULL);     |   |       |       |              |       |        |       |       |           |
+| 58 |  i++                                                                                 | 4 |       |       |              |       |        |       |       |           |
+| 58 |  i < 5 --> i=4 --> true                                                              |   |       |       |              |       |        |       |       |           |
+| 59 |  interesado[1] = 1;                                                                  |   |       |       |              | 1     |        |       |       |           |
+| 60 |  while (interesado[0]) { --> interesado[0] = 0 --> false                             |   |       |       |              |       |        |       |       |           |
+| 68 |  atender_proceso();                                                                  |   |       |       |              |       |        |       |       |           |
+| 24 |  inicia metodo --> void atender_proceso() {                                          |   |       |       |              |       |        |       |       |           |
+| 25 |  if (cabeza != NULL) { --> cabeza = nodo1 --> true                                   |   |       |       |              |       |        |       |       |           |
+| 26 |  nodo* temp = cabeza;                                                                |   |       |       |              |       |        | nodo1 |       |           |
+| 27 |  cabeza = cabeza->siguiente;                                                         |   |       |       |              |       | Null   |       |       |           |
+| 28 |  printf(""Consumidor atendió: %d\n"", temp->valor);                                  |   |       |       |              |       |        |       |       |           |
+| 29 |  free(temp);                                                                         |   |       |       |              |       |        |       | free  | free      |
+| 33 |  termina metodo  --> atender_proceso                                                 |   |       |       |              |       |        |       |       |           |
+| 70 |  turno = 0;                                                                          |   |       | 0     |              |       |        |       |       |           |
+| 71 |  interesado[1] = 0;                                                                  |   |       |       |              | 0     |        |       |       |           |
+| 72 |  sleep(2);  tiempo de espera permite al hilo_productor trabajar                      |   |       |       |              |       |        |       |       |           |
+| 37 |  i++                                                                                 | 5 |       |       |              |       |        |       |       |           |
+| 37 |  i < 5 --> i=5 --> false                                                             |   |       |       |              |       |        |       |       |           |
+| 52 |  termina ciclo for --> for (int i = 0; i < 5; i++) {                                 |   |       |       |              |       |        |       |       |           |
+| 53 |  finaliza hilo_productor --> return NULL;                                            |   |       |       |              |       |        |       |       |           |
+| 54 |  termina funcion --> productor                                                       |   |       |       |              |       |        |       |       |           |
+| 84 |  esperar a que finalice hilo_consumidor --> pthread_join(hilo_consumidor, NULL);     |   |       |       |              |       |        |       |       |           |
+| 58 |  i++                                                                                 | 5 |       |       |              |       |        |       |       |           |
+| 58 |  i < 5 --> i=5 --> false                                                             |   |       |       |              |       |        |       |       |           |
+| 73 |  termina ciclo for --> for (int i = 0; i < 5; i++) {                                 |   |       |       |              |       |        |       |       |           |
+| 74 |  finaliza hilo_productor --> return NULL;                                            |   |       |       |              |       |        |       |       |           |
+| 75 |  termina funcion --> consumidor                                                      |   |       |       |              |       |        |       |       |           |
+| 86 |  return 0;                                                                           |   |       |       |              |       |        |       |       |           |
+| 87 |  finalza main                                                                        |   |       |       |              |       |        |       |       |           |
+|    |  Fin del programa             
+</br>
+
+
+
+---
 ## Administración de Memoria
 </br>
 
@@ -734,6 +1056,8 @@ Por lo tanto la memoria caché es una capa de almacenamiento de alta velocidad q
 al almacenar los datos más utilizados en una memoria más rápida. Esto permite que las solicitudes futuras de 
 esos datos se atiendan más rápido.
 
+</br>
 
+#+begin_src bash
 
-
+#+end_src
