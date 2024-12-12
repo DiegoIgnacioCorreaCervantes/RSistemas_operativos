@@ -131,7 +131,7 @@
 
 |    |                                                                                      |   |       |       | interesado[] |       |        |       | nodo1 |           |
 |----|--------------------------------------------------------------------------------------|---|-------|-------|--------------|-------|--------|-------|-------|-----------|
-| L  | Sentencia                                                                            | i | valor | turno | [ 0 ]      | [ 1 ]      | cabeza | temp  | valor | siguiente |
+| L  | Sentencia                                                                            | i | valor | turno | [ 0 ]   | [ 1 ]   | cabeza | temp  | valor | siguiente |
 | 11 |  nodo* cabeza = NULL;                                                                |   |       |       |              |       | Null   |       |       |           |
 | 13 |  int turno = 0;                                                                      |   |       | 0     |              |       |        |       |       |           |
 | 14 |  int interesado[2] = {0, 0};                                                         |   |       |       | 0            | 0     |        |       |       |           |
@@ -325,7 +325,7 @@
 
 | interesado[] |                                                                                                   |   |              | nodo1         |       |       | nodo2 |        |       |
 |--------------|---------------------------------------------------------------------------------------------------|---|--------------|---------------|-------|-------|-------|--------|-------|
-| L            | Sentencia                                                                                         | i | id_productor | id_consumidor | turno | [ 0 ] | [ 1 ] | cabeza | temp  | valor | prioridad | siguiente | valor | prioridad | siguiente |
+| L            | Sentencia                                                                                         | i | id_productor | id_consumidor | turno | [ 0 ]  | [ 1 ]  | cabeza | temp  | valor | prioridad | siguiente | valor | prioridad | siguiente |
 | 14           |  nodo* cabeza = NULL;                                                                             |   |              |               |       |       |       | Null   |       |       |           |           |       |           |           |
 | 15           |  int turno = 0;                                                                                   |   |              |               | 0     |       |       |        |       |       |           |           |       |           |           |
 | 16           |  int interesado[2] = {0, 0};                                                                      |   |              |               |       | 0     | 0     |        |       |       |           |           |       |           |           |
