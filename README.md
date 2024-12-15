@@ -1711,21 +1711,176 @@ Aprender cómo identificar discos duros, particiones y su configuración.
 1.- Use el comando `fdisk -l` para listar todos los discos y particiones.
 
 ```bash
+ubuntu@Diego:~$ sudo fdisk -l
+[sudo] contraseña para ubuntu: 
+Disco /dev/loop0: 4 KiB, 4096 bytes, 8 sectores
+Unidades: sectores de 1 * 512 = 512 bytes
+Tamaño de sector (lógico/físico): 512 bytes / 512 bytes
+Tamaño de E/S (mínimo/óptimo): 512 bytes / 512 bytes
 
+
+Disco /dev/loop1: 55,36 MiB, 58052608 bytes, 113384 sectores
+Unidades: sectores de 1 * 512 = 512 bytes
+Tamaño de sector (lógico/físico): 512 bytes / 512 bytes
+Tamaño de E/S (mínimo/óptimo): 512 bytes / 512 bytes
+
+
+Disco /dev/loop2: 74,24 MiB, 77844480 bytes, 152040 sectores
+Unidades: sectores de 1 * 512 = 512 bytes
+Tamaño de sector (lógico/físico): 512 bytes / 512 bytes
+Tamaño de E/S (mínimo/óptimo): 512 bytes / 512 bytes
+
+
+Disco /dev/loop3: 73,88 MiB, 77463552 bytes, 151296 sectores
+Unidades: sectores de 1 * 512 = 512 bytes
+Tamaño de sector (lógico/físico): 512 bytes / 512 bytes
+Tamaño de E/S (mínimo/óptimo): 512 bytes / 512 bytes
+
+
+Disco /dev/loop4: 269,63 MiB, 282722304 bytes, 552192 sectores
+Unidades: sectores de 1 * 512 = 512 bytes
+Tamaño de sector (lógico/físico): 512 bytes / 512 bytes
+Tamaño de E/S (mínimo/óptimo): 512 bytes / 512 bytes
+
+
+Disco /dev/loop5: 274,05 MiB, 287358976 bytes, 561248 sectores
+Unidades: sectores de 1 * 512 = 512 bytes
+Tamaño de sector (lógico/físico): 512 bytes / 512 bytes
+Tamaño de E/S (mínimo/óptimo): 512 bytes / 512 bytes
+
+
+Disco /dev/loop6: 11,11 MiB, 11649024 bytes, 22752 sectores
+Unidades: sectores de 1 * 512 = 512 bytes
+Tamaño de sector (lógico/físico): 512 bytes / 512 bytes
+Tamaño de E/S (mínimo/óptimo): 512 bytes / 512 bytes
+
+
+Disco /dev/loop7: 10,72 MiB, 11239424 bytes, 21952 sectores
+Unidades: sectores de 1 * 512 = 512 bytes
+Tamaño de sector (lógico/físico): 512 bytes / 512 bytes
+Tamaño de E/S (mínimo/óptimo): 512 bytes / 512 bytes
+
+
+Disco /dev/fd0: 1,41 MiB, 1474560 bytes, 2880 sectores
+Unidades: sectores de 1 * 512 = 512 bytes
+Tamaño de sector (lógico/físico): 512 bytes / 512 bytes
+Tamaño de E/S (mínimo/óptimo): 512 bytes / 512 bytes
+Tipo de etiqueta de disco: dos
+Identificador del disco: 0x90909090
+
+Dispositivo Inicio   Comienzo      Final   Sectores Tamaño Id Tipo
+/dev/fd0p1         2425393296 4850786591 2425393296   1,1T 90 desconocido
+/dev/fd0p2         2425393296 4850786591 2425393296   1,1T 90 desconocido
+/dev/fd0p3         2425393296 4850786591 2425393296   1,1T 90 desconocido
+/dev/fd0p4         2425393296 4850786591 2425393296   1,1T 90 desconocido
+
+
+Disco /dev/sda: 25 GiB, 26843545600 bytes, 52428800 sectores
+Disk model: VMware Virtual S
+Unidades: sectores de 1 * 512 = 512 bytes
+Tamaño de sector (lógico/físico): 512 bytes / 512 bytes
+Tamaño de E/S (mínimo/óptimo): 512 bytes / 512 bytes
+Tipo de etiqueta de disco: gpt
+Identificador del disco: E4C04A8C-38B9-4062-96E4-7CA64D3937C9
+
+Dispositivo Comienzo    Final Sectores Tamaño Tipo
+/dev/sda1       2048     4095     2048     1M Arranque de BIOS
+/dev/sda2       4096 52426751 52422656    25G Sistema de ficheros de Linux
+
+
+Disco /dev/loop8: 505,09 MiB, 529625088 bytes, 1034424 sectores
+Unidades: sectores de 1 * 512 = 512 bytes
+Tamaño de sector (lógico/físico): 512 bytes / 512 bytes
+Tamaño de E/S (mínimo/óptimo): 512 bytes / 512 bytes
+
+
+Disco /dev/loop9: 91,69 MiB, 96141312 bytes, 187776 sectores
+Unidades: sectores de 1 * 512 = 512 bytes
+Tamaño de sector (lógico/físico): 512 bytes / 512 bytes
+Tamaño de E/S (mínimo/óptimo): 512 bytes / 512 bytes
+
+
+Disco /dev/loop10: 499,23 MiB, 523476992 bytes, 1022416 sectores
+Unidades: sectores de 1 * 512 = 512 bytes
+Tamaño de sector (lógico/físico): 512 bytes / 512 bytes
+Tamaño de E/S (mínimo/óptimo): 512 bytes / 512 bytes
+
+
+Disco /dev/loop11: 256,54 MiB, 269000704 bytes, 525392 sectores
+Unidades: sectores de 1 * 512 = 512 bytes
+Tamaño de sector (lógico/físico): 512 bytes / 512 bytes
+Tamaño de E/S (mínimo/óptimo): 512 bytes / 512 bytes
+
+
+Disco /dev/loop12: 10,36 MiB, 10862592 bytes, 21216 sectores
+Unidades: sectores de 1 * 512 = 512 bytes
+Tamaño de sector (lógico/físico): 512 bytes / 512 bytes
+Tamaño de E/S (mínimo/óptimo): 512 bytes / 512 bytes
+
+
+Disco /dev/loop13: 10,67 MiB, 11186176 bytes, 21848 sectores
+Unidades: sectores de 1 * 512 = 512 bytes
+Tamaño de sector (lógico/físico): 512 bytes / 512 bytes
+Tamaño de E/S (mínimo/óptimo): 512 bytes / 512 bytes
+
+
+Disco /dev/loop14: 38,73 MiB, 40615936 bytes, 79328 sectores
+Unidades: sectores de 1 * 512 = 512 bytes
+Tamaño de sector (lógico/físico): 512 bytes / 512 bytes
+Tamaño de E/S (mínimo/óptimo): 512 bytes / 512 bytes
+
+
+Disco /dev/loop15: 476 KiB, 487424 bytes, 952 sectores
+Unidades: sectores de 1 * 512 = 512 bytes
+Tamaño de sector (lógico/físico): 512 bytes / 512 bytes
+Tamaño de E/S (mínimo/óptimo): 512 bytes / 512 bytes
+
+
+Disco /dev/loop16: 38,83 MiB, 40714240 bytes, 79520 sectores
+Unidades: sectores de 1 * 512 = 512 bytes
+Tamaño de sector (lógico/físico): 512 bytes / 512 bytes
+Tamaño de E/S (mínimo/óptimo): 512 bytes / 512 bytes
+
+
+Disco /dev/loop17: 568 KiB, 581632 bytes, 1136 sectores
+Unidades: sectores de 1 * 512 = 512 bytes
+Tamaño de sector (lógico/físico): 512 bytes / 512 bytes
+Tamaño de E/S (mínimo/óptimo): 512 bytes / 512 bytes
+
+
+Disco /dev/loop18: 150,3 MiB, 157601792 bytes, 307816 sectores
+Unidades: sectores de 1 * 512 = 512 bytes
+Tamaño de sector (lógico/físico): 512 bytes / 512 bytes
+Tamaño de E/S (mínimo/óptimo): 512 bytes / 512 bytes
+
+
+Disco /dev/loop19: 150,31 MiB, 157609984 bytes, 307832 sectores
+Unidades: sectores de 1 * 512 = 512 bytes
+Tamaño de sector (lógico/físico): 512 bytes / 512 bytes
+Tamaño de E/S (mínimo/óptimo): 512 bytes / 512 bytes
 ```
 </br>
 
 2.- Utilice `blkid` para ver los identificadores UUID y los tipos de sistema de archivos.
 
 ```bash
-
+ubuntu@Diego:~$ blkid
+/dev/sda2: UUID="a8f5dedd-9c2f-468c-a861-6fd93b12b81a" BLOCK_SIZE="4096" TYPE="ext4" PARTUUID="b516a9f6-b2eb-4861-bce7-7ef975a10d10"
+/dev/sr0: BLOCK_SIZE="2048" UUID="2024-05-08-15-07-21-00" LABEL="CDROM" TYPE="iso9660"
 ```
 </br>
 
 3.- Use `df -h` para listar los dispositivos montados y su espacio disponible.
 
 ```bash
-
+ubuntu@Diego:~$ df -h
+S.ficheros     Tamaño Usados  Disp Uso% Montado en
+tmpfs            790M   2,0M  788M   1% /run
+/dev/sda2         25G    13G   11G  57% /
+tmpfs            3,9G      0  3,9G   0% /dev/shm
+tmpfs            5,0M   8,0K  5,0M   1% /run/lock
+tmpfs            790M   132K  790M   1% /run/user/1000
+/dev/sr0          88M    88M     0 100% /media/ubuntu/CDROM
 ```
 </br>
 
@@ -1733,13 +1888,203 @@ Aprender cómo identificar discos duros, particiones y su configuración.
 
 * ¿Qué dispositivos de almacenamiento están conectados a su sistema?
   
-   
+   Disco /dev/loop --> 0 a 19, Disco /dev/fd --> 0 a 4 y Disco /dev/sda --> 0 a 2,
+
    </br>
 * ¿Qué particiones están montadas actualmente?
   
-   
+   tmpfs, /dev/sda2 y /dev/sr0
    </br>
 * ¿Qué tipo de sistemas de archivos se usan en las particiones?
   
-   
+   ext4 y iso9660
    </br><br>
+
+### Actividad 3: Explorar dispositivos de entrada
+
+**Objetivo**
+
+Identificar dispositivos como teclados, ratones y cámaras.
+
+**Instrucciones**
+
+1.- Ejecute `cat /proc/bus/input/devices` para listar los dispositivos de entrada.
+
+```bash
+ubuntu@Diego:~$ cat /proc/bus/input/devices
+I: Bus=0019 Vendor=0000 Product=0001 Version=0000
+N: Name="Power Button"
+P: Phys=LNXPWRBN/button/input0
+S: Sysfs=/devices/LNXSYSTM:00/LNXPWRBN:00/input/input0
+U: Uniq=
+H: Handlers=kbd event0 
+B: PROP=0
+B: EV=3
+B: KEY=8000 10000000000000 0
+
+I: Bus=0011 Vendor=0001 Product=0001 Version=ab41
+N: Name="AT Translated Set 2 keyboard"
+P: Phys=isa0060/serio0/input0
+S: Sysfs=/devices/platform/i8042/serio0/input/input1
+U: Uniq=
+H: Handlers=sysrq kbd event1 leds 
+B: PROP=0
+B: EV=120013
+B: KEY=402000000 3803078f800d001 feffffdfffefffff fffffffffffffffe
+B: MSC=10
+B: LED=7
+
+I: Bus=0011 Vendor=0002 Product=0013 Version=0006
+N: Name="VirtualPS/2 VMware VMMouse"
+P: Phys=isa0060/serio1/input1
+S: Sysfs=/devices/platform/i8042/serio1/input/input4
+U: Uniq=
+H: Handlers=mouse0 event2 
+B: PROP=0
+B: EV=b
+B: KEY=70000 0 0 0 0
+B: ABS=3
+
+I: Bus=0011 Vendor=0002 Product=0013 Version=0006
+N: Name="VirtualPS/2 VMware VMMouse"
+P: Phys=isa0060/serio1/input0
+S: Sysfs=/devices/platform/i8042/serio1/input/input3
+U: Uniq=
+H: Handlers=mouse1 event3 
+B: PROP=1
+B: EV=7
+B: KEY=30000 0 0 0 0
+B: REL=103
+
+I: Bus=0003 Vendor=0e0f Product=0003 Version=0110
+N: Name="VMware VMware Virtual USB Mouse"
+P: Phys=usb-0000:02:00.0-1/input0
+S: Sysfs=/devices/pci0000:00/0000:00:11.0/0000:02:00.0/usb1/1-1/1-1:1.0/0003:0E0F:0003.0001/input/input5
+U: Uniq=
+H: Handlers=mouse2 event4 
+B: PROP=0
+B: EV=17
+B: KEY=ff0000 0 0 0 0
+B: REL=903
+B: MSC=10
+
+I: Bus=0000 Vendor=0000 Product=0000 Version=0000
+N: Name="VMware DnD UInput pointer"
+P: Phys=
+S: Sysfs=/devices/virtual/input/input6
+U: Uniq=
+H: Handlers=mouse3 event5 js0 
+B: PROP=0
+B: EV=b
+B: KEY=10000 0 0 0 0
+B: ABS=3
+```
+</br>
+
+2.- Use `evtest` para monitorear eventos de dispositivos de entrada (requiere permisos de superusuario).
+
+~~~bash
+ubuntu@Diego:~$ sudo evtest
+sudo: evtest: orden no encontrada
+~~~
+</br>
+
+3.- Investigue los siguientes dispositivos:
+   
+   * Teclado
+   
+     El teclado es un dispositivo de entrada que utiliza una disposición de teclas, para que actúen como interruptores electrónicos que envían información a la computadora.
+     El teclado tiene entre 99 y 108 teclas; y, está dividido en cuatro bloques: de funciones, alfanumérico, especial y numérico.
+    
+     Un teclado realiza sus funciones mediante un microcontrolador que tiene un programa instalado para su funcionamiento, que es ejecutado y realiza la exploración matricial 
+     de las teclas cuando se presiona alguna, y así determinar cuales están pulsadas.
+
+     Por cada pulsación o liberación de una tecla el microcontrolador envía un código identificativo que se llama Scan Code. Para permitir que varias teclas sean pulsadas simultáneamente, 
+     el teclado genera un código diferente cuando una tecla se pulsa y cuando dicha tecla se libera. Si el microcontrolador nota que ha cesado la pulsación de la tecla, el nuevo código generado (Break Code) 
+     tendrá un valor de pulsación incrementado en 128. Estos códigos son enviados al circuito microcontrolador donde serán tratados gracias al administrador de teclado, que no es más que un programa de la BIOS 
+     y que determina qué carácter le corresponde a la tecla pulsada comparándolo con una tabla de caracteres que hay en el kernel, generando una interrupción por hardware y enviando los datos al procesador. 
+     El microcontrolador también posee cierto espacio de memoria RAM que hace que sea capaz de almacenar las últimas pulsaciones en caso de que no se puedan leer a causa de la velocidad de tecleo del usuario. 
+     Hay que tener en cuenta, que cuando realizamos una pulsación se pueden producir rebotes que duplican la señal. Con el fin de eliminarlos, el teclado también dispone de un circuito que limpia la señal.
+   </br>
+
+   * Mouse
+   
+     El ratón o mouse es un dispositivo apuntador utilizado para facilitar el manejo de un entorno gráfico en una computadora.
+
+     Detecta su movimiento relativo en dos dimensiones por la superficie plana en la que se apoya, reflejándose a través 
+     de un puntero, cursor o flecha en el monitor. El ratón se puede conectar de forma cableada (puertos PS/2 y USB), 
+     o inalámbricamente por medio de un adaptador USB que se conecta al ordenador y este recibe la señal del ratón, 
+     aunque también pueden ser por medio de conectividad infrarroja o Bluetooth.
+    
+     Es, desde hace un tiempo, común en cualquier equipo informático, de tal manera que todos los sistemas operativos
+     modernos suelen incluir de serie un controlador software básico para que este pueda funcionar de manera inmediata y 
+     correcta. No obstante, es normal encontrar software propio del fabricante que puede añadir una serie de funciones 
+     opcionales, o propiamente los controladores si son necesarios.
+
+   </br>
+
+   * Controladores USB adicionales
+  
+      * **Controlador de dispositivo de audio USB**
+  
+        El controlador de dispositivo de audio USB soporta dispositivos USB isocronos como altavoces de audio USB. 
+        Cada dispositivo de audio USB se representa como las siguientes interfaces: control de audio y transmisión
+        de audio. Aunque estas interfaces están asociadas con el dispositivo único, las interfaces se tratan como 
+        dispositivos separados virtualmente. El archivo especial /dev/paud0 se crea para la interfaz de control de audio 
+        y el archivo especial /dev/paudas0 se crea para la interfaz de streaming de audio.
+
+        La interfaz de control de audio se utiliza para acceder a las funciones internas de un dispositivo de audio. 
+        Cualquier solicitud para cambiar los controles de audio dentro de las unidades o terminales de la función
+        de audio se dirige a la interfaz de control de audio de la función.
+      </br>
+ 
+      * **Controlador de dispositivo de cliente de teclado USB**
+      
+        El cliente de teclado consta de un programa de fondo que interactúa con el controlador del sistema USB (USBD) 
+        y un programa frontal que interactúa con las aplicaciones AIX® como, por ejemplo, el terminal de baja función (LFT) 
+        y las aplicaciones de servidor X. El controlador del cliente del teclado USB no tiene conocimiento del hardware del 
+        adaptador USB subyacente. En su lugar, el controlador de cliente envía solicitudes de control al teclado USB a través 
+        de USBD y recibe sucesos de entrada a través de USBD. El controlador de cliente de teclado se identifica a sí mismo 
+        como un controlador de teclado genérico estableciendo el campo devid en sus datos predefinidos de Object Data Manager (ODM) en 030101. 
+        El dispositivo padre del cliente de teclado es el pseudo dispositivo, usb0. El cliente de teclado no tiene ningún hijo. 
+        Cada dispositivo de teclado que está conectado al sistema AIX se representa como /dev/kbd0, /dev/kbd1, etc.
+
+        El controlador de cliente de teclado USB da soporte a la conexión de varios dispositivos de teclado USB. 
+        Cada dispositivo se enumera en ODM y se marca como disponible. El controlador de cliente trata todos los 
+        teclados como un único dispositivo lógico. Los valores de diodo emisor de luz (LED) se envían a todos los 
+        teclados y los sucesos de entrada de todos los teclados se envían a un único anillo de entrada. 
+        El seguimiento de estado por parte del controlador de cliente garantiza que una clave no genere sucesos 
+        de interrupción consecutivos y que el retardo y la repetición de tipo gráfico se manejen adecuadamente.
+
+        Se crean archivos especiales (por ejemplo, /dev/kbd0, /dev/kbd1, etc.) para cada dispositivo de teclado USB. 
+        Si hay al menos un dispositivo de teclado USB disponible, una aplicación (normalmente la aplicación de servidor 
+        LFT o X) puede abrir cualquiera de los archivos especiales del teclado USB.
+      </br>
+
+      * **Controlador de dispositivo de cliente de ratón USB**
+      
+        El controlador de dispositivo de cliente de ratón USB consta de un programa de fondo que interactúa con el controlador 
+        del sistema USB (USBD) y un programa frontal que interactúa con una aplicación AIX® como la aplicación de servidor X. 
+        El controlador de cliente no tiene conocimiento del hardware del adaptador USB subyacente. En su lugar, el controlador de 
+        cliente envía solicitudes de control al ratón USB a través de USBD y recibe sucesos de entrada a través de USBD. 
+        El controlador del cliente USB del ratón da soporte a la conexión de varios dispositivos USB del ratón. 
+        Cada dispositivo se enumera en el Gestor de datos de objeto (ODM) y se marca como disponible. El controlador de cliente 
+        trata todos los dispositivos del ratón como un único dispositivo lógico. Los sucesos de entrada de todos los dispositivos 
+        se envían a un único anillo de entrada.
+
+        Se crea un archivo especial de dispositivo para cada dispositivo de ratón USB. Hasta que haya al menos un dispositivo de 
+        ratón USB que esté marcado como disponible, una aplicación (normalmente la aplicación de servidor X) puede abrir cualquiera 
+        de los archivos especiales del ratón USB porque el controlador del cliente ignora la especificación de número menor. 
+        Dispositivo de ratón USB que se añade y configura después de que la operación abierta se añada automáticamente al conjunto 
+        abierto. Los archivos especiales de dispositivo (por ejemplo, /dev/mouse0, /dev/mouse1, etc.) se crean para cada dispositivo de ratón USB.
+      </br>
+
+4.- Conteste:
+   
+   * ¿Qué eventos genera cada dispositivo al interactuar con ellos?
+   interrupciones de hardware y e/s.
+   </br>
+   * ¿Cómo se identifican los dispositivos en `/proc/bus/input/devices`?
+  
+   Por medio de letras y numeros.
+   </br>
