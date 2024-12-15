@@ -1983,10 +1983,10 @@ B: ABS=3
 
 2.- Use `evtest` para monitorear eventos de dispositivos de entrada (requiere permisos de superusuario).
 
-~~~bash
+```bash
 ubuntu@Diego:~$ sudo evtest
 sudo: evtest: orden no encontrada
-~~~
+```
 </br>
 
 3.- Investigue los siguientes dispositivos:
@@ -2081,10 +2081,167 @@ sudo: evtest: orden no encontrada
 
 4.- Conteste:
    
-   * ¿Qué eventos genera cada dispositivo al interactuar con ellos?
+* ¿Qué eventos genera cada dispositivo al interactuar con ellos?
+   
    interrupciones de hardware y e/s.
    </br>
-   * ¿Cómo se identifican los dispositivos en `/proc/bus/input/devices`?
+
+* ¿Cómo se identifican los dispositivos en `/proc/bus/input/devices`?
   
    Por medio de letras y numeros.
+   </br><br>
+
+### Actividad 4: Examinar dispositivos de salida
+
+**Objetivo**
+
+Entender cómo identificar dispositivos de salida como monitores y tarjetas de sonido.
+
+**Instrucciones**
+
+1.- Use `xrandr` para listar las pantallas conectadas y sus resoluciones.
+
+```bash
+ubuntu@Diego:~$ xrandr
+Screen 0: minimum 16 x 16, current 1920 x 947, maximum 32767 x 32767
+Virtual-1 connected primary 1920x947+0+0 (normal left inverted right x axis y axis) 0mm x 0mm
+   1920x947      59.88*+
+   1152x864      59.96  
+   1024x768      59.92  
+   800x600       59.86  
+   640x480       59.38  
+   320x240       59.52  
+   1440x900      59.89  
+   1280x800      59.81  
+   1152x720      59.75  
+   960x600       59.63  
+   928x580       59.88  
+   800x500       59.50  
+   768x480       59.90  
+   720x480       59.71  
+   640x400       59.95  
+   320x200       58.96  
+   1600x900      59.95  
+   1368x768      59.88  
+   1280x720      59.86  
+   1024x576      59.90  
+   864x486       59.92  
+   720x400       59.55  
+   640x350       59.77  
+```
+</br>
+
+2.- Ejecute `aplay -l` para listar las tarjetas de sonido disponibles.
+
+```bash
+ubuntu@Diego:~$ aplay -l
+**** Lista de PLAYBACK dispositivos hardware ****
+tarjeta 0: AudioPCI [Ensoniq AudioPCI], dispositivo 0: ES1371/1 [ES1371 DAC2/ADC]
+  Subdispositivos: 1/1
+  Subdispositivo #0: subdevice #0
+tarjeta 0: AudioPCI [Ensoniq AudioPCI], dispositivo 1: ES1371/2 [ES1371 DAC1]
+  Subdispositivos: 1/1
+  Subdispositivo #0: subdevice #0
+```
+</br>
+
+3.- Use `lsof /dev/snd/*` para ver qué procesos están utilizando la tarjeta de sonido.
+
+```bash
+ubuntu@Diego:~$ lsof /dev/snd/*
+COMMAND    PID   USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+pipewire  2406 ubuntu   59u   CHR  116,1      0t0  436 /dev/snd/seq
+pipewire  2406 ubuntu   60u   CHR  116,1      0t0  436 /dev/snd/seq
+wireplumb 2412 ubuntu   35u   CHR  116,6      0t0  802 /dev/snd/controlC0
+```
+</br>
+
+4.- Conteste:
+
+* ¿Qué salidas de video están disponibles en su sistema?
+    
+   1920x947, 1152x864, 1024x768, 800x600, 640x480, 320x240, 1440x900, 1280x800, 1152x720, 960x600, 928x580, 
+   800x500, 768x480, 720x480, 640x40, 320x200, 1600x900, 1368x768, 1280x720, 1024x576, 864x486, 720x400, 640x350         
    </br>
+
+* ¿Qué dispositivos de sonido se detectaron?
+    
+   tarjeta 0: AudioPCI [Ensoniq AudioPCI], dispositivo 0: ES1371/1 [ES1371 DAC2/ADC] 
+   y tarjeta 0: AudioPCI [Ensoniq AudioPCI], dispositivo 1: ES1371/2 [ES1371 DAC1]
+   </br>
+
+* ¿Qué procesos están usando la tarjeta de sonido?
+    
+   pipewire y wireplumb
+   </br><br>
+
+### Actividad 5: Crear un script de resumen
+
+**Objetivo**
+
+Automatizar la recopilación de información de dispositivos de entrada y salida.
+
+**Instrucciones**
+
+1.- Cree un archivo llamado `dispositivos.sh` y agregue el siguiente contenido: 
+#!/bin/bash echo "Dispositivos de bloque:" lsblk echo "Dispositivos USB:" lsusb echo "Dispositivos PCI:" 
+lspci echo "Dispositivos de entrada:" cat /proc/bus/input/devices echo "Salidas de video:" xrandr echo "Tarjetas de sonido:" aplay -l
+
+```bash
+
+
+```
+</br>
+
+2.- Ejecute el script usando `bash dispositivos.sh`.
+
+```bash
+
+
+```
+</br>
+
+3.- Modifique el script para guardar la salida en un archivo llamado `resumendispositivos.txt`.
+
+```bash
+
+
+```
+</br>
+
+4.- Conteste:
+
+* ¿Qué ventajas tiene usar un script para recopilar esta información?
+    
+    
+   </br>
+
+* ¿Qué cambios realizaría para personalizar el script?
+    
+    
+   </br><br>
+
+### Actividad 6: Reflexión y discusión
+
+**Objetivo**
+
+Analizar la importancia del manejo de dispositivos en sistemas Linux.
+
+**Instrucciones**
+
+Reflexione sobre lo aprendido y discuta en equipo:
+
+* ¿Qué comando encontró más útil y por qué?
+    
+    
+   </br>
+
+* ¿Qué tan importante es conocer los dispositivos conectados al sistema?
+   
+    
+   </br>
+
+* ¿Cómo podrían estos conocimientos aplicarse en la administración de sistemas?
+    
+      
+   </br><br>  
