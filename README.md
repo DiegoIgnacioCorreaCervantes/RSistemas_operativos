@@ -795,6 +795,7 @@
 | 92    |  return 0;                                                                                                                  |             |              |               |     |       |       |       |        |       |       |           |           |       |           |           |
 | 93    |  finalza main                                                                                                               |             |              |               |     |       |       |       |        |       |       |           |           |       |           |           |
 |       |  Fin del programa                                                                                                           |             |              |               |     |       |       |       |        |       |       |
+
 </br>
 
 ---
@@ -1527,9 +1528,173 @@ acceder a ella es mucho más reducido que en el caso de la RAM.
 Por lo tanto la memoria caché es una capa de almacenamiento de alta velocidad que reduce las operaciones de E/S 
 al almacenar los datos más utilizados en una memoria más rápida. Esto permite que las solicitudes futuras de 
 esos datos se atiendan más rápido.
-
 </br>
 
-#+begin_src bash
+---
 
-#+end_src
+## Actividades: Dispositivos de entrada y salida en Linux
+
+### Actividad 1: Listar dispositivos conectados
+
+En este ejercicio, aprenderá a listar, verificar y analizar los dispositivos de entrada y salida en Linux. 
+Usarán comandos básicos y herramientas comunes disponibles en cualquier distribución.
+
+
+**Objetivo**
+Conocer los dispositivos de entrada y salida conectados al sistema.
+
+**Instrucciones**
+1.- Abra una terminal en su entorno Linux.
+2.- Ejecute los siguientes comandos y anote sus observaciones:
+
+* **`lsblk`: Enumera los dispositivos de bloque.**
+```bash
+ubuntu@Diego:~$ lsblk
+NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+fd0      2:0    1     4K  0 disk 
+loop0    7:0    0     4K  1 loop /snap/bare/5
+loop1    7:1    0  55,4M  1 loop /snap/core18/2846
+loop2    7:2    0  74,2M  1 loop /snap/core22/1380
+loop3    7:3    0  73,9M  1 loop /snap/core22/1663
+loop4    7:4    0 269,6M  1 loop /snap/firefox/4173
+loop5    7:5    0   274M  1 loop /snap/firefox/5361
+loop6    7:6    0  11,1M  1 loop /snap/firmware-updater/147
+loop7    7:7    0  10,7M  1 loop /snap/firmware-updater/127
+loop8    7:8    0 505,1M  1 loop /snap/gnome-42-2204/176
+loop9    7:9    0  91,7M  1 loop /snap/gtk-common-themes/1535
+loop10   7:10   0 499,2M  1 loop /snap/netbeans/111
+loop11   7:11   0 256,5M  1 loop /snap/openjdk/2020
+loop12   7:12   0  10,4M  1 loop /snap/snap-store/1134
+loop13   7:13   0  10,7M  1 loop /snap/snap-store/1218
+loop14   7:14   0  38,7M  1 loop /snap/snapd/21465
+loop15   7:15   0   476K  1 loop /snap/snapd-desktop-integration/157
+loop16   7:16   0  38,8M  1 loop /snap/snapd/21759
+loop17   7:17   0   568K  1 loop /snap/snapd-desktop-integration/253
+loop18   7:18   0 150,3M  1 loop /snap/thunderbird/562
+loop19   7:19   0 150,3M  1 loop /snap/thunderbird/571
+sda      8:0    0    25G  0 disk 
+├─sda1   8:1    0     1M  0 part 
+└─sda2   8:2    0    25G  0 part /var/snap/firefox/common/host-hunspell
+                                 /
+sr0     11:0    1    88M  0 rom  /media/ubuntu/CDROM
+sr1     11:1    1  1024M  0 rom
+```
+</br>
+
+* **`lsusb`: Lista los dispositivos conectados a los puertos USB.**
+```bash
+ubuntu@Diego:~$ lsusb
+Bus 001 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
+Bus 001 Device 002: ID 0e0f:0003 VMware, Inc. Virtual Mouse
+Bus 001 Device 003: ID 0e0f:0002 VMware, Inc. Virtual USB Hub
+Bus 001 Device 004: ID 0e0f:0008 VMware, Inc. Virtual Bluetooth Adapter
+Bus 002 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+```
+</br>
+
+* **`lspci`: Muestra los dispositivos conectados al bus PCI.**
+```bash
+ubuntu@Diego:~$ lspci
+00:00.0 Host bridge: Intel Corporation 440BX/ZX/DX - 82443BX/ZX/DX Host bridge (rev 01)
+00:01.0 PCI bridge: Intel Corporation 440BX/ZX/DX - 82443BX/ZX/DX AGP bridge (rev 01)
+00:07.0 ISA bridge: Intel Corporation 82371AB/EB/MB PIIX4 ISA (rev 08)
+00:07.1 IDE interface: Intel Corporation 82371AB/EB/MB PIIX4 IDE (rev 01)
+00:07.3 Bridge: Intel Corporation 82371AB/EB/MB PIIX4 ACPI (rev 08)
+00:07.7 System peripheral: VMware Virtual Machine Communication Interface (rev 10)
+00:0f.0 VGA compatible controller: VMware SVGA II Adapter
+00:10.0 SCSI storage controller: Broadcom / LSI 53c1030 PCI-X Fusion-MPT Dual Ultra320 SCSI (rev 01)
+00:11.0 PCI bridge: VMware PCI bridge (rev 02)
+00:15.0 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:15.1 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:15.2 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:15.3 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:15.4 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:15.5 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:15.6 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:15.7 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:16.0 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:16.1 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:16.2 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:16.3 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:16.4 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:16.5 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:16.6 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:16.7 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:17.0 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:17.1 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:17.2 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:17.3 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:17.4 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:17.5 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:17.6 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:17.7 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:18.0 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:18.1 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:18.2 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:18.3 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:18.4 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:18.5 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:18.6 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:18.7 PCI bridge: VMware PCI Express Root Port (rev 01)
+02:00.0 USB controller: VMware USB1.1 UHCI Controller
+02:01.0 Ethernet controller: Intel Corporation 82545EM Gigabit Ethernet Controller (Copper) (rev 01)
+02:02.0 Multimedia audio controller: Ensoniq ES1371/ES1373 / Creative Labs CT2518 (rev 02)
+02:03.0 USB controller: VMware USB2 EHCI Controller
+02:04.0 SATA controller: VMware SATA AHCI controller
+```
+</br>
+
+* **`dmesg | grep usb`: Muestra los mensajes del kernel relacionados con dispositivos USB.**
+```bash
+sudo dmesg | grep usb
+[sudo] contraseña para ubuntu: 
+[    1.997897] usbcore: registered new interface driver usbfs
+[    1.997908] usbcore: registered new interface driver hub
+[    1.998659] usbcore: registered new device driver usb
+[    2.293740] usb usb1: New USB device found, idVendor=1d6b, idProduct=0001, bcdDevice= 6.08
+[    2.293744] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    2.293747] usb usb1: Product: UHCI Host Controller
+[    2.293749] usb usb1: Manufacturer: Linux 6.8.0-49-generic uhci_hcd
+[    2.293751] usb usb1: SerialNumber: 0000:02:00.0
+[    2.306199] usb usb2: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 6.08
+[    2.306202] usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    2.306205] usb usb2: Product: EHCI Host Controller
+[    2.306207] usb usb2: Manufacturer: Linux 6.8.0-49-generic ehci_hcd
+[    2.306209] usb usb2: SerialNumber: 0000:02:03.0
+[    2.521640] usb 1-1: new full-speed USB device number 2 using uhci_hcd
+[    2.664842] usb 1-1: New USB device found, idVendor=0e0f, idProduct=0003, bcdDevice= 1.03
+[    2.664855] usb 1-1: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+[    2.664859] usb 1-1: Product: VMware Virtual USB Mouse
+[    2.664863] usb 1-1: Manufacturer: VMware
+[    2.786754] usb 1-2: new full-speed USB device number 3 using uhci_hcd
+[    2.981344] usb 1-2: New USB device found, idVendor=0e0f, idProduct=0002, bcdDevice= 1.00
+[    2.981354] usb 1-2: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+[    2.981357] usb 1-2: Product: VMware Virtual USB Hub
+[    2.981361] usb 1-2: Manufacturer: VMware, Inc.
+[    3.290735] usb 1-2.1: new full-speed USB device number 4 using uhci_hcd
+[    3.394929] usb 1-2.1: New USB device found, idVendor=0e0f, idProduct=0008, bcdDevice= 1.00
+[    3.394939] usb 1-2.1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[    3.394943] usb 1-2.1: Product: Virtual Bluetooth Adapter
+[    3.394946] usb 1-2.1: Manufacturer: VMware
+[    3.394949] usb 1-2.1: SerialNumber: 000650268328
+[    3.815644] usbcore: registered new interface driver usbhid
+[    3.815649] usbhid: USB HID core driver
+[    3.953423] input: VMware VMware Virtual USB Mouse as /devices/pci0000:00/0000:00:11.0/0000:02:00.0/usb1/1-1/1-1:1.0/0003:0E0F:0003.0001/input/input5
+[    3.956797] hid-generic 0003:0E0F:0003.0001: input,hidraw0: USB HID v1.10 Mouse [VMware VMware Virtual USB Mouse] on usb-0000:02:00.0-1/input0
+[   14.586983] usbcore: registered new interface driver btusb
+```
+</br>
+
+3.- Conteste:
+* ¿Qué tipos de dispositivos se muestran en la salida de `lsblk`?
+   Programas y aplicaciones.
+   </br>
+* ¿Cuál es la diferencia entre `lsusb` y `lspci`?
+   lsusb muestra los dispositivos que estan conectados a los puertos USB y lspci muestra los
+   dispositivos que estan conectados al bus PCI.
+   </br>
+* ¿Qué información adicional proporciona `dmesg | grep usb`?
+   credenciales del USB o proceso relacionado e información sobre su estado y origen.
+   </br>
+
+
