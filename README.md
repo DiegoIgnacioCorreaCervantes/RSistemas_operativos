@@ -2186,11 +2186,10 @@ Automatizar la recopilación de información de dispositivos de entrada y salida
 1.- Cree un archivo llamado `dispositivos.sh` y agregue el siguiente contenido: 
 #!/bin/bash echo "Dispositivos de bloque:" lsblk echo "Dispositivos USB:" lsusb echo "Dispositivos PCI:" 
 lspci echo "Dispositivos de entrada:" cat /proc/bus/input/devices echo "Salidas de video:" xrandr echo "Tarjetas de sonido:" aplay -l
+</br>
 
-```bash
+![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/archivo_es.png)
 
-
-```
 </br>
 
 2.- Ejecute el script usando `bash dispositivos.sh`.
