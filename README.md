@@ -2195,16 +2195,234 @@ lspci echo "Dispositivos de entrada:" cat /proc/bus/input/devices echo "Salidas 
 2.- Ejecute el script usando `bash dispositivos.sh`.
 
 ```bash
+ubuntu@Diego:~$ touch dispositivos.sh
+ubuntu@Diego:~$ nano dispositivos.sh
+ubuntu@Diego:~$ bash dispositivos.sh
+lsblk: echo: no es un dispositivo de bloques
+lsblk: Dispositivos USB:: no es un dispositivo de bloques
+Usage: lsusb [options]...
+List USB devices
+  -v, --verbose
+      Increase verbosity (show descriptors)
+  -s [[bus]:][devnum]
+      Show only devices with specified device and/or
+      bus numbers (in decimal)
+  -d vendor:[product]
+      Show only devices with the specified vendor and
+      product ID numbers (in hexadecimal)
+  -D device
+      Selects which device lsusb will examine
+  -t, --tree
+      Dump the physical USB device hierarchy as a tree
+  -V, --version
+      Show version of program
+  -h, --help
+      Show usage and help
+Usage: lspci [<switches>]
 
+Basic display modes:
+-mm		Produce machine-readable output (single -m for an obsolete format)
+-t		Show bus tree
 
+Display options:
+-v		Be verbose (-vv or -vvv for higher verbosity)
+-k		Show kernel drivers handling each device
+-x		Show hex-dump of the standard part of the config space
+-xxx		Show hex-dump of the whole config space (dangerous; root only)
+-xxxx		Show hex-dump of the 4096-byte extended config space (root only)
+-b		Bus-centric view (addresses and IRQ's as seen by the bus)
+-D		Always show domain numbers
+-P		Display bridge path in addition to bus and device number
+-PP		Display bus path in addition to bus and device number
+
+Resolving of device ID's to names:
+-n		Show numeric ID's
+-nn		Show both textual and numeric ID's (names & numbers)
+-q		Query the PCI ID database for unknown ID's via DNS
+-qq		As above, but re-query locally cached entries
+-Q		Query the PCI ID database for all ID's via DNS
+
+Selection of devices:
+-s [[[[<domain>]:]<bus>]:][<slot>][.[<func>]]	Show only devices in selected slots
+-d [<vendor>]:[<device>][:<class>]		Show only devices with specified ID's
+
+Other options:
+-i <file>	Use specified ID database instead of /usr/share/misc/pci.ids.gz
+-p <file>	Look up kernel modules in a given file instead of default modules.pcimap
+-M		Enable `bus mapping' mode (dangerous; root only)
+
+PCI access options:
+-A <method>	Use the specified PCI access method (see `-A help' for a list)
+-O <par>=<val>	Set PCI access parameter (see `-O help' for a list)
+-G		Enable PCI access debugging
+-H <mode>	Use direct hardware access (<mode> = 1 or 2)
+-F <file>	Read PCI configuration dump from a given file
+I: Bus=0019 Vendor=0000 Product=0001 Version=0000
+N: Name="Power Button"
+P: Phys=LNXPWRBN/button/input0
+S: Sysfs=/devices/LNXSYSTM:00/LNXPWRBN:00/input/input0
+U: Uniq=
+H: Handlers=kbd event0 
+B: PROP=0
+B: EV=3
+B: KEY=8000 10000000000000 0
+
+I: Bus=0011 Vendor=0001 Product=0001 Version=ab41
+N: Name="AT Translated Set 2 keyboard"
+P: Phys=isa0060/serio0/input0
+S: Sysfs=/devices/platform/i8042/serio0/input/input1
+U: Uniq=
+H: Handlers=sysrq kbd event1 leds 
+B: PROP=0
+B: EV=120013
+B: KEY=402000000 3803078f800d001 feffffdfffefffff fffffffffffffffe
+B: MSC=10
+B: LED=7
+
+I: Bus=0011 Vendor=0002 Product=0013 Version=0006
+N: Name="VirtualPS/2 VMware VMMouse"
+P: Phys=isa0060/serio1/input1
+S: Sysfs=/devices/platform/i8042/serio1/input/input4
+U: Uniq=
+H: Handlers=mouse0 event2 
+B: PROP=0
+B: EV=b
+B: KEY=70000 0 0 0 0
+B: ABS=3
+
+I: Bus=0011 Vendor=0002 Product=0013 Version=0006
+N: Name="VirtualPS/2 VMware VMMouse"
+P: Phys=isa0060/serio1/input0
+S: Sysfs=/devices/platform/i8042/serio1/input/input3
+U: Uniq=
+H: Handlers=mouse1 event3 
+B: PROP=1
+B: EV=7
+B: KEY=30000 0 0 0 0
+B: REL=103
+
+I: Bus=0003 Vendor=0e0f Product=0003 Version=0110
+N: Name="VMware VMware Virtual USB Mouse"
+P: Phys=usb-0000:02:00.0-1/input0
+S: Sysfs=/devices/pci0000:00/0000:00:11.0/0000:02:00.0/usb1/1-1/1-1:1.0/0003:0E0F:0003.0001/input/input5
+U: Uniq=
+H: Handlers=mouse2 event4 
+B: PROP=0
+B: EV=17
+B: KEY=ff0000 0 0 0 0
+B: REL=903
+B: MSC=10
+
+I: Bus=0000 Vendor=0000 Product=0000 Version=0000
+N: Name="VMware DnD UInput pointer"
+P: Phys=
+S: Sysfs=/devices/virtual/input/input6
+U: Uniq=
+H: Handlers=mouse3 event5 js0 
+B: PROP=0
+B: EV=b
+B: KEY=10000 0 0 0 0
+B: ABS=3
+
+cat: echo: No existe el archivo o el directorio
+cat: 'Salidas de video:': No existe el archivo o el directorio
+xrandr: unrecognized option 'echo'
+Try 'xrandr --help' for more information.
+**** Lista de PLAYBACK dispositivos hardware ****
+tarjeta 0: AudioPCI [Ensoniq AudioPCI], dispositivo 0: ES1371/1 [ES1371 DAC2/ADC]
+  Subdispositivos: 1/1
+  Subdispositivo #0: subdevice #0
+tarjeta 0: AudioPCI [Ensoniq AudioPCI], dispositivo 1: ES1371/2 [ES1371 DAC1]
+  Subdispositivos: 1/1
+  Subdispositivo #0: subdevice #0
 ```
 </br>
 
 3.- Modifique el script para guardar la salida en un archivo llamado `resumendispositivos.txt`.
+</br>
+
+![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/archivo_es2.png)
+
+</br>
 
 ```bash
+buntu@Diego:~$ cat resumendispositivos.txt
 
+I: Bus=0019 Vendor=0000 Product=0001 Version=0000
+N: Name="Power Button"
+P: Phys=LNXPWRBN/button/input0
+S: Sysfs=/devices/LNXSYSTM:00/LNXPWRBN:00/input/input0
+U: Uniq=
+H: Handlers=kbd event0 
+B: PROP=0
+B: EV=3
+B: KEY=8000 10000000000000 0
 
+I: Bus=0011 Vendor=0001 Product=0001 Version=ab41
+N: Name="AT Translated Set 2 keyboard"
+P: Phys=isa0060/serio0/input0
+S: Sysfs=/devices/platform/i8042/serio0/input/input1
+U: Uniq=
+H: Handlers=sysrq kbd event1 leds 
+B: PROP=0
+B: EV=120013
+B: KEY=402000000 3803078f800d001 feffffdfffefffff fffffffffffffffe
+B: MSC=10
+B: LED=7
+
+I: Bus=0011 Vendor=0002 Product=0013 Version=0006
+N: Name="VirtualPS/2 VMware VMMouse"
+P: Phys=isa0060/serio1/input1
+S: Sysfs=/devices/platform/i8042/serio1/input/input4
+U: Uniq=
+H: Handlers=mouse0 event2 
+B: PROP=0
+B: EV=b
+B: KEY=70000 0 0 0 0
+B: ABS=3
+
+I: Bus=0011 Vendor=0002 Product=0013 Version=0006
+N: Name="VirtualPS/2 VMware VMMouse"
+P: Phys=isa0060/serio1/input0
+S: Sysfs=/devices/platform/i8042/serio1/input/input3
+U: Uniq=
+H: Handlers=mouse1 event3 
+B: PROP=1
+B: EV=7
+B: KEY=30000 0 0 0 0
+B: REL=103
+
+I: Bus=0003 Vendor=0e0f Product=0003 Version=0110
+N: Name="VMware VMware Virtual USB Mouse"
+P: Phys=usb-0000:02:00.0-1/input0
+S: Sysfs=/devices/pci0000:00/0000:00:11.0/0000:02:00.0/usb1/1-1/1-1:1.0/0003:0E0F:0003.0001/input/input5
+U: Uniq=
+H: Handlers=mouse2 event4 
+B: PROP=0
+B: EV=17
+B: KEY=ff0000 0 0 0 0
+B: REL=903
+B: MSC=10
+
+I: Bus=0000 Vendor=0000 Product=0000 Version=0000
+N: Name="VMware DnD UInput pointer"
+P: Phys=
+S: Sysfs=/devices/virtual/input/input6
+U: Uniq=
+H: Handlers=mouse3 event5 js0 
+B: PROP=0
+B: EV=b
+B: KEY=10000 0 0 0 0
+B: ABS=3
+
+Salidas de video:
+**** Lista de PLAYBACK dispositivos hardware ****
+tarjeta 0: AudioPCI [Ensoniq AudioPCI], dispositivo 0: ES1371/1 [ES1371 DAC2/ADC]
+  Subdispositivos: 1/1
+  Subdispositivo #0: subdevice #0
+tarjeta 0: AudioPCI [Ensoniq AudioPCI], dispositivo 1: ES1371/2 [ES1371 DAC1]
+  Subdispositivos: 1/1
+  Subdispositivo #0: subdevice #0
 ```
 </br>
 
@@ -2212,12 +2430,14 @@ lspci echo "Dispositivos de entrada:" cat /proc/bus/input/devices echo "Salidas 
 
 * ¿Qué ventajas tiene usar un script para recopilar esta información?
     
-    
+   Ahorra una gran cantidad de tiempo al no tener que ejecutar cada instrucción manualmente,
+   permite guardar la informacion resultante para revisarla en otro momento y permite darle una mejor 
+   apariencia a la informacion mostrada.
    </br>
 
 * ¿Qué cambios realizaría para personalizar el script?
-    
-    
+ 
+   Darle mas espacio a cada instruccion y diferenciarlas de mejor manera. 
    </br><br>
 
 ### Actividad 6: Reflexión y discusión
@@ -2232,15 +2452,16 @@ Reflexione sobre lo aprendido y discuta en equipo:
 
 * ¿Qué comando encontró más útil y por qué?
     
-    
+   `df -h` y `evtest` porque nos permiten conocer mas informacion de nuestros dispositivos de e/s.
    </br>
 
 * ¿Qué tan importante es conocer los dispositivos conectados al sistema?
    
-    
+   Es muy importante pues al conocer mas informacion sobre estos podemos trabajar de mejor manera con ellos.
    </br>
 
 * ¿Cómo podrían estos conocimientos aplicarse en la administración de sistemas?
     
-      
+   Verificar el estado de algun dispositivo para encontrar errores, crear scrips que nos permitan realizar tareas
+   de comprovacion y mantenimiento mas rapidamente y encontrar peligros que pongan en riesgo nuestro sistema.  
    </br><br>  
