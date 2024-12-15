@@ -1528,7 +1528,7 @@ acceder a ella es mucho más reducido que en el caso de la RAM.
 Por lo tanto la memoria caché es una capa de almacenamiento de alta velocidad que reduce las operaciones de E/S 
 al almacenar los datos más utilizados en una memoria más rápida. Esto permite que las solicitudes futuras de 
 esos datos se atiendan más rápido.
-</br>
+</br><br>
 
 ---
 
@@ -1538,7 +1538,6 @@ esos datos se atiendan más rápido.
 
 En este ejercicio, aprenderá a listar, verificar y analizar los dispositivos de entrada y salida en Linux. 
 Usarán comandos básicos y herramientas comunes disponibles en cualquier distribución.
-
 
 **Objetivo**
 Conocer los dispositivos de entrada y salida conectados al sistema.
@@ -1686,15 +1685,61 @@ sudo dmesg | grep usb
 </br>
 
 3.- Conteste:
+
 * ¿Qué tipos de dispositivos se muestran en la salida de `lsblk`?
+  
    Programas y aplicaciones.
    </br>
 * ¿Cuál es la diferencia entre `lsusb` y `lspci`?
+  
    lsusb muestra los dispositivos que estan conectados a los puertos USB y lspci muestra los
    dispositivos que estan conectados al bus PCI.
    </br>
 * ¿Qué información adicional proporciona `dmesg | grep usb`?
+  
    credenciales del USB o proceso relacionado e información sobre su estado y origen.
+   </br><br>
+
+### Actividad 2: Verificar dispositivos de almacenamiento
+
+**Objetivo**
+
+Aprender cómo identificar discos duros, particiones y su configuración.
+
+**Instrucciones**
+
+1.- Use el comando `fdisk -l` para listar todos los discos y particiones.
+
+```bash
+
+```
+</br>
+
+2.- Utilice `blkid` para ver los identificadores UUID y los tipos de sistema de archivos.
+
+```bash
+
+```
+</br>
+
+3.- Use `df -h` para listar los dispositivos montados y su espacio disponible.
+
+```bash
+
+```
+</br>
+
+4.- Conteste:
+
+* ¿Qué dispositivos de almacenamiento están conectados a su sistema?
+  
+   
    </br>
-
-
+* ¿Qué particiones están montadas actualmente?
+  
+   
+   </br>
+* ¿Qué tipo de sistemas de archivos se usan en las particiones?
+  
+   
+   </br><br>
