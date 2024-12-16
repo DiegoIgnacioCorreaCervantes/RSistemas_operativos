@@ -2466,4 +2466,37 @@ Reflexione sobre lo aprendido y discuta en equipo:
     
    Verificar el estado de algun dispositivo para encontrar errores, crear scrips que nos permitan realizar tareas
    de comprovacion y mantenimiento mas rapidamente y encontrar peligros que pongan en riesgo nuestro sistema.  
-   </br><br>  
+   </br>
+
+---
+</br>
+
+## Actividad Final
+</br>
+
+### Sistemas de Archivos
+
+#### Ejercicio 1: Concepto y noción de archivo real y virtual
+
+**Descripción:**
+Define los conceptos de archivo real y archivo virtual y explica sus diferencias.
+Identifica ejemplos prácticos de cada tipo en sistemas operativos actuales.
+
+**Tareas:**
+
+* Define el concepto de archivo real y archivo virtual.
+
+
+   </br>
+
+* Proporciona ejemplos de cómo los sistemas operativos manejan archivos
+  reales y virtuales.
+
+ 
+   </br>
+
+* Explica un caso práctico donde un archivo virtual sea más útil que un
+  archivo real.
+
+
+   </br>
