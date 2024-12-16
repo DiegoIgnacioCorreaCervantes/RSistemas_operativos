@@ -2602,15 +2602,15 @@ Investiga los componentes principales de un sistema de archivos y compáralos en
    
    </br>
 
-   |   Sistema de archivos NTFS                                                              
+   |               Sistema de archivos NTFS                 |               Sistema de archivos Ext4                 |
    |--------------------------------------------------------|--------------------------------------------------------|
-   |    
-                                                                                                                                                                
-   |     
-                                                                                                                                                                  
-   |
-                                                                                                                              
-   |                                                        |                                                                                                   
+   |                                                        |                                                        |  
+   |                                                        |                                                        |                                                 
+   |                                                        |                                                        |
+   |                                                        |                                                        |                                                                                                        
+   |                                                        |                                                        |
+   |                                                        |                                                        |            
+   |                                                        |                                                        |                                           
 
    </br>
 
