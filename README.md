@@ -131,7 +131,7 @@
 
 |    |                                                                                      |   |       |       | interesado[] |       |        |       | nodo1 |           |
 |----|--------------------------------------------------------------------------------------|---|-------|-------|--------------|-------|--------|-------|-------|-----------|
-| L  | Sentencia                                                                            | i | valor | turno | [ 0 ] | [ 1 ] | cabeza | temp  | valor | siguiente |
+| L  | Sentencia                                                                            | i | valor | turno | [ 0 ]        | [ 1 ] | cabeza | temp  | valor | siguiente |
 | 11 |  nodo* cabeza = NULL;                                                                |   |       |       |              |       | Null   |       |       |           |
 | 13 |  int turno = 0;                                                                      |   |       | 0     |              |       |        |       |       |           |
 | 14 |  int interesado[2] = {0, 0};                                                         |   |       |       | 0            | 0     |        |       |       |           |
@@ -2599,7 +2599,18 @@ Investiga los componentes principales de un sistema de archivos y compáralos en
    </br>
 
 * Crea un cuadro comparativo de cómo estos componentes funcionan en sistemas como EXT4 y NTFS.
+   
+   </br>
 
+   |   Sistema de archivos NTFS                                                              
+   |--------------------------------------------------------|--------------------------------------------------------|
+   |    
+                                                                                                                                                                
+   |     
+                                                                                                                                                                  
+   |
+                                                                                                                              
+   |                                                        |                                                                                                   
 
    </br>
 
