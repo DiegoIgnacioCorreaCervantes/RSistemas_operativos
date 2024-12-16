@@ -2542,6 +2542,7 @@ Identifica ejemplos prácticos de cada tipo en sistemas operativos actuales.
    direcciones dentro del sistema de archivos concreto en el que reside el archivo solicitado. La función que maneja a read se llama 
    ahora y el código dentro del sistema de archivos concreto obtiene el bloque solicitado. El VFS no tiene idea acerca de si los datos 
    provienen del disco local, de un sistema de archivos remoto a través de la red, un CD-ROM, una memoria USB o de algo distinto. 
+   
    </br>
    
    ![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/d_arvirtuales.png)
@@ -2551,18 +2552,30 @@ Identifica ejemplos prácticos de cada tipo en sistemas operativos actuales.
    **Archivos reles**
    </br>
    
-    Por lo general los archivos se almacenan en disco, así que la administración del espacio en disco es una cuestión importante para los diseñadores de sistemas de archivos. Hay dos estrategias generales
-    posibles para almacenar un archivo de n bytes: se asignan n bytes consecutivos de espacio en disco
-    o el archivo se divide en varios bloques (no necesariamente) contiguos. La misma concesión está pre
-    sente en los sistemas de administración de memoria, entre la segmentación pura y la paginación. 
-    Como hemos visto, almacenar un archivo como una secuencia contigua de bytes tiene el pro
-    blema obvio de que si un archivo crece, probablemente tendrá que moverse en el disco. El mismo
-    problema se aplica a los segmentos en memoria, excepto que la operación de mover un segmento
-    en memoria es rápida, en comparación con la operación de mover un archivo de una posición en el
-    disco a otra. Por esta razón, casi todos los sistemas de archivos dividen los archivos en bloques de
-    tamaño fijo que no necesitan ser adyacentes.
+   Por lo general los archivos se almacenan en disco, así que la administración del espacio en disco es una cuestión importante para los diseñadores de sistemas de archivos. Hay dos estrategias generales
+   posibles para almacenar un archivo de n bytes: se asignan n bytes consecutivos de espacio en disco
+   o el archivo se divide en varios bloques (no necesariamente) contiguos. La misma concesión está pre
+   sente en los sistemas de administración de memoria, entre la segmentación pura y la paginación. 
+   Como hemos visto, almacenar un archivo como una secuencia contigua de bytes tiene el problema obvio 
+   de que si un archivo crece, probablemente tendrá que moverse en el disco. El mismo
+   problema se aplica a los segmentos en memoria, excepto que la operación de mover un segmento
+   en memoria es rápida, en comparación con la operación de mover un archivo de una posición en el
+   disco a otra. Por esta razón, casi todos los sistemas de archivos dividen los archivos en bloques de
+   tamaño fijo que no necesitan ser adyacentes.
+   
+   Una vez que se ha elegido un tamaño de bloque, la siguiente cuestión es cómo llevar registro de los
+   bloques libres. Hay dos métodos utilizados ampliamente, como se muestra en la figura 4-22. El primero consiste en utilizar una lista enlazada de bloques de disco, donde cada bloque contiene tantos números 
+   de bloques de disco libres como pueda. Con un bloque de 1 KB y un número de bloque de disco de 32 bits, cada bloque en la lista de bloques libres contiene los números de 255 bloques libres (se requiere una ranura para el apuntador al siguiente bloque). Considere un disco de 500 GB, que tiene aproximadamente 488 millones de bloques de disco. Para almacenar todas estas direcciones a 255 por bloque, se requiere una cantidad aproximada de 1.9 millones de bloques. En general se utilizan bloques libres para mantener la lista de bloques libres, por lo que en esencia el almacenamiento es gratuito.
 
-    
+   </br>
+   
+   ![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/
+   d_arreales.png)
+
+   </br>
+
+   ![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/
+   d_arreales2.png)
 
    </br>
 
@@ -2571,4 +2584,32 @@ Identifica ejemplos prácticos de cada tipo en sistemas operativos actuales.
  
    Imagina que tenemos un programa que debe hacer el registro de los lanzamientos de una moneda para luego  guardarlos en otra ubicación, sin enbargo cada archivo real solo puede contener la informacion referente 
    a 10 lnzamientos. Para solucionarlo crearemos un archivo virtual donde se registrara la cantidad de lanzamientos que tiene cada uno de los archivos, así evitando que se exceda el numero maximo de  lanzamientos. Una vez finalizado el programa eliminaremos este archivo pues ya no es necesario, de forma  que liberaremos espacio y asi evitaremos desperdiciar el espacio que un archivo real hubiera ocupado.
+   </br>
+
+#### **Ejercicio 2: Componentes de un sistema de archivos**
+
+**Descripción:**
+
+Investiga los componentes principales de un sistema de archivos y compáralos entre dos sistemas operativos, como Linux y Windows.
+
+**Tareas:**
+
+* Identifica los componentes clave de un sistema de archivos (por ejem
+  plo, metadatos, tablas de asignación, etc.).
+
+
+
+   </br>
+
+* Crea un cuadro comparativo de cómo estos componentes funcionan en sistemas como EXT4 y NTFS.
+
+
+
+   </br>
+
+* Describe las ventajas y desventajas de cada sistema basado en sus
+  componentes.
+
+
+
    </br>
