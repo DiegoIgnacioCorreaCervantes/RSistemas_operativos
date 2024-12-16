@@ -2486,17 +2486,89 @@ Identifica ejemplos prácticos de cada tipo en sistemas operativos actuales.
 
 * Define el concepto de archivo real y archivo virtual.
 
+   **Archivo virtual:**
+   Un archivo virtual, es un archivo de uso temporal que es utilizado por los procesos del sistema mientras 
+   se están ejecutando dichos procesos. estos archivos se crean durante la ejecución de un sistema y los 
+   utiliza para el almacenamiento de información, intercambio y organización mientras se ejecuta el sistema, 
+   su tamaño es muy variable y terminan al detener la ejecución del sistema, muchos de ellos son borrados.
+   </br>
+
+   **Archivo real:**
+   Es un objeto que contiene programas, datos o cualquier otro elemento. Un archivo se muestra de manera real, 
+   en la información del espacio que ocupa en un disco duro o sistema de almacenamiento, en otras palabras su tamaño en bytes.
+   Una característica de este tipo de archivos es que a mayor texto que almacena el archivo, mayor es el espacio en disco que consume dicho archivo.
+
+   Estos archivos se crean durante la ejecución de un sistema y los utiliza para el almacenamiento de información, 
+   intercambio y organización mientras se ejecuta el sistema su tamaño es muy variable y terminan al detener la 
+   ejecución del sistema, muchos de ellos son borrados, por ejemplo, los archivos.*.tmp
+   Archivo con extensión TMP es más comúnmente utilizado para referirse a un archivo de copia de seguridad 
+   o de carácter temporal.
+   </br>
+
+* Proporciona ejemplos de cómo los sistemas operativos manejan archivos 
+  reales y virtuales.
+   </br>
+   
+   **Sistemas de archivos virtuales**
+    
+   Para comprender cómo funciona el VFS (virtual file system, Sistema de archivos virtual), veamos un ejemplo en forma cronológica.
+   Cuando se arranca el sistema, el sistema de archivos raíz se registra con el VFS. Además, cuando se montan otros sistemas de 
+   archivos (ya sea en tiempo de arranque o durante la operación), éstos también se deben registrar con el VFS. Cuando un sistema de archivos se registra, lo que hace
+   básicamente es proveer una lista de las direcciones de las funciones que requiere la VFS, ya sea como un vector (tabla) de llamadas extenso 
+   o como varios de ellos, uno por cada objeto VFS, según lo demande el VFS. Así, una vez que se ha registrado un sistema de archivos con el VFS, 
+   éste sabe cómo leer un bloque de ese sistema, por ejemplo: simplemente llama a la cuarta (o cualquier otra) función en el vector suministrado
+   por el sistema de archivos. De manera similar, el VFS sabe entonces también cómo llevar a cabo cada una de las demás funciones 
+   que debe suministrar el sistema de archivos concreto: sólo llama a la función cuya dirección se suministró cuando se registró el sistema de archivos.
+   
+   Una vez que se ha montado un sistema de archivos, se puede utilizar. Por ejemplo, si se ha montado un sistema de archivos en /usr y un proceso realiza la llamada
+   </br>
+
+   **open(“/usr/include/unistd.h”, O_RDONLY)**
+   </br>
+
+   al analizar sintácticamente la ruta, el VFS ve que se ha montado un nuevo sistema de archivos en /usr y localiza su superbloque, 
+   para lo cual busca en la lista de superbloques de los sistemas de archivos montados. Habiendo realizado esto, puede encontrar 
+   el directorio raíz del sistema de archivos montado y buscar la ruta include/unistd.h ahí. Entonces, el VFS crea un nodo-v y 
+   hace una llamada al sistema de archivos concreto para que devuelva toda la información en el nodo-i del archivo. 
+   Esta información se copia al nodo-v (en RAM) junto con otra información, siendo la más importante el apuntador 
+   a la tabla de funciones a llamar para las operaciones con los nodos-v, como read, write, close, etcétera.
+   
+   Una vez que se ha creado el nodo-v, el VFS crea una entrada en la tabla de descriptores de archivos para el proceso que está haciendo 
+   la llamada y la establece para que apunte al nuevo nodov. Por último, el VFS devuelve el descriptor de archivo al llamador, de manera 
+   que lo pueda utilizar para leer, escribir y cerrar el archivo.
+ 
+   Posteriormente, cuando el proceso realiza una operación read utilizando el descriptor de archivo, el VFS localiza el nodo-v 
+   del proceso y las tablas de descriptores de archivos, siguiendo el apuntador hasta la tabla de funciones, todas las cuales son 
+   direcciones dentro del sistema de archivos concreto en el que reside el archivo solicitado. La función que maneja a read se llama 
+   ahora y el código dentro del sistema de archivos concreto obtiene el bloque solicitado. El VFS no tiene idea acerca de si los datos 
+   provienen del disco local, de un sistema de archivos remoto a través de la red, un CD-ROM, una memoria USB o de algo distinto. 
+   </br>
+   
+   ![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/d_arvirtuales.png)
 
    </br>
 
-* Proporciona ejemplos de cómo los sistemas operativos manejan archivos
-  reales y virtuales.
+   **Archivos reles**
+   </br>
+   
+    Por lo general los archivos se almacenan en disco, así que la administración del espacio en disco es una cuestión importante para los diseñadores de sistemas de archivos. Hay dos estrategias generales
+    posibles para almacenar un archivo de n bytes: se asignan n bytes consecutivos de espacio en disco
+    o el archivo se divide en varios bloques (no necesariamente) contiguos. La misma concesión está pre
+    sente en los sistemas de administración de memoria, entre la segmentación pura y la paginación. 
+    Como hemos visto, almacenar un archivo como una secuencia contigua de bytes tiene el pro
+    blema obvio de que si un archivo crece, probablemente tendrá que moverse en el disco. El mismo
+    problema se aplica a los segmentos en memoria, excepto que la operación de mover un segmento
+    en memoria es rápida, en comparación con la operación de mover un archivo de una posición en el
+    disco a otra. Por esta razón, casi todos los sistemas de archivos dividen los archivos en bloques de
+    tamaño fijo que no necesitan ser adyacentes.
 
- 
+    
+
    </br>
 
 * Explica un caso práctico donde un archivo virtual sea más útil que un
   archivo real.
-
-
+ 
+   Imagina que tenemos un programa que debe hacer el registro de los lanzamientos de una moneda para luego  guardarlos en otra ubicación, sin enbargo cada archivo real solo puede contener la informacion referente 
+   a 10 lnzamientos. Para solucionarlo crearemos un archivo virtual donde se registrara la cantidad de lanzamientos que tiene cada uno de los archivos, así evitando que se exceda el numero maximo de  lanzamientos. Una vez finalizado el programa eliminaremos este archivo pues ya no es necesario, de forma  que liberaremos espacio y asi evitaremos desperdiciar el espacio que un archivo real hubiera ocupado.
    </br>
