@@ -2472,13 +2472,13 @@ Reflexione sobre lo aprendido y discuta en equipo:
 </br>
 
 ## Actividad Final
-</br>
 
 ### Sistemas de Archivos
 
-#### Ejercicio 1: Concepto y noción de archivo real y virtual
+#### **Ejercicio 1: Concepto y noción de archivo real y virtual**
 
 **Descripción:**
+
 Define los conceptos de archivo real y archivo virtual y explica sus diferencias.
 Identifica ejemplos prácticos de cada tipo en sistemas operativos actuales.
 
