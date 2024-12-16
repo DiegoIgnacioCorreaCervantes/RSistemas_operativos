@@ -2593,15 +2593,12 @@ Investiga los componentes principales de un sistema de archivos y compáralos en
 
 **Tareas:**
 
-* Identifica los componentes clave de un sistema de archivos (por ejem
-  plo, metadatos, tablas de asignación, etc.).
+* Identifica los componentes clave de un sistema de archivos (por ejemplo, metadatos, tablas de asignación, etc.).
 
-
-
+   Métodos de acceso, Administración de archivos, Administracion de almacenamiento auxiliar, Mecanismos de integridad, Organización de archivos física y lógica,  
    </br>
 
 * Crea un cuadro comparativo de cómo estos componentes funcionan en sistemas como EXT4 y NTFS.
-
 
 
    </br>
