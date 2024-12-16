@@ -2569,13 +2569,11 @@ Identifica ejemplos prácticos de cada tipo en sistemas operativos actuales.
 
    </br>
    
-   ![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/
-   d_arreales.png)
+   ![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/d_arreales.png)
 
    </br>
 
-   ![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/
-   d_arreales2.png)
+   ![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/d_arreales2.png)
 
    </br>
 
@@ -2584,6 +2582,7 @@ Identifica ejemplos prácticos de cada tipo en sistemas operativos actuales.
  
    Imagina que tenemos un programa que debe hacer el registro de los lanzamientos de una moneda para luego  guardarlos en otra ubicación, sin enbargo cada archivo real solo puede contener la informacion referente 
    a 10 lnzamientos. Para solucionarlo crearemos un archivo virtual donde se registrara la cantidad de lanzamientos que tiene cada uno de los archivos, así evitando que se exceda el numero maximo de  lanzamientos. Una vez finalizado el programa eliminaremos este archivo pues ya no es necesario, de forma  que liberaremos espacio y asi evitaremos desperdiciar el espacio que un archivo real hubiera ocupado.
+   
    </br>
 
 #### **Ejercicio 2: Componentes de un sistema de archivos**
