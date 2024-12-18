@@ -2600,8 +2600,6 @@ Investiga los componentes principales de un sistema de archivos y compáralos en
 
 * Crea un cuadro comparativo de cómo estos componentes funcionan en sistemas como EXT4 y NTFS.
    
-   </br>
-   
    ![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/Tcomp_SA.png)
  
    </br>
