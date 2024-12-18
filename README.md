@@ -2603,17 +2603,14 @@ Investiga los componentes principales de un sistema de archivos y compáralos en
    </br>
    
    ![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/Tcomp_SA1.png)
-   
    ![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/Tcomp_SA2.png)         
  
    </br>
 
 * Describe las ventajas y desventajas de cada sistema basado en sus
   componentes.
-
-   </br>
    
-   **NTFS**
+   #### **NTFS**
 
    Ventajas:
 
@@ -2624,8 +2621,6 @@ Investiga los componentes principales de un sistema de archivos y compáralos en
       * Recuperación ante errores.
       * Soporte de Metadatos para permitirle al usuario guardar informacion adicional.
 
-   </br>
-
    Desventajas:
 
       * Compatibilidad limitada.
@@ -2635,7 +2630,7 @@ Investiga los componentes principales de un sistema de archivos y compáralos en
 
    </br>
 
-   **ext4**
+   #### **ext4**
 
    Ventajas:
 
@@ -2646,7 +2641,6 @@ Investiga los componentes principales de un sistema de archivos y compáralos en
       * Buen rendimiento.
       * Mantiene un registro de las transacciones en curso.
   
-   </br>
    Desventajas:
 
       * Escalabilidad limitada.
