@@ -2602,8 +2602,7 @@ Investiga los componentes principales de un sistema de archivos y compáralos en
    
    </br>
    
-   ![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/Tcomp_SA1.png)
-   ![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/Tcomp_SA2.png)         
+   ![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/Tcomp_SA.png)
  
    </br>
 
