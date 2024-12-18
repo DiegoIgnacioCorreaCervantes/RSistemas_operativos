@@ -2725,7 +2725,7 @@ en el disco.
 * Diseña un árbol jerárquico que represente la organización lógica de
   directorios y subdirectorios.
 
-   ![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/AA_img.png)
+   ![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/AA_img.jpeg)
    </br>
 
 * Explica cómo se traduce la dirección lógica a la dirección física en el
