@@ -1174,7 +1174,7 @@ Una de las implementaciones más obvias y directas de un espacio de memoria segm
 
 * Se compila el manejo de memoria virtual, ya que los discos almacenan información en bloques de tamaños fijos.
 
-* No se puede garantizar que al salir de un segmento de la memoria este pueda ser traído fácilmente de nuevo,ya que sera necesario  encontrar nuevamente un área de memoria libre ajustada a su tamaño.
+* No se puede garantizar que al salir de un segmento de la memoria este pueda ser traído fácilmente de nuevo, ya que sera necesario  encontrar nuevamente un área de memoria libre ajustada a su tamaño.
 
 * Aparece el problema de la fracmentacion externa. La fragmentación externa es un problema informático que se produce cuando la memoria libre se divide en bloques pequeños y se intercala con la memoria asignada.
 </br>
@@ -1190,8 +1190,7 @@ a memoria virtual.**
  "Least Recently Used" (LRU).**
 </br>
 
-**2. Diseña un diagrama que represente el proceso de traducción de direc
-ciones virtuales a físicas en un sistema con memoria virtual.**
+**2. Diseña un diagrama que represente el proceso de traducción de direcciones virtuales a físicas en un sistema con memoria virtual.**
 </br>
 
 ![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/3.4_2.jpeg)
@@ -2601,7 +2600,6 @@ Investiga los componentes principales de un sistema de archivos y compáralos en
 * Crea un cuadro comparativo de cómo estos componentes funcionan en sistemas como EXT4 y NTFS.
    
    ![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/Tcomp_SA.png)
- 
    </br>
 
 * Describe las ventajas y desventajas de cada sistema basado en sus
@@ -2643,5 +2641,55 @@ Investiga los componentes principales de un sistema de archivos y compáralos en
       * Escalabilidad limitada.
       * Sin cifrado nativo.
       * Fragmentación.
+
+   </br>
+
+#### **Ejercicio 3: Organización lógica y física de archivos**
+
+**Descripción:**
+
+Crea un esquema que muestre la organización lógica y física de un sistema
+de archivos. Explica cómo se relacionan las estructuras lógicas con las físicas
+en el disco.
+
+**Tareas:**
+
+* Diseña un árbol jerárquico que represente la organización lógica de
+  directorios y subdirectorios.
+
+   ![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/AA_img.png)
+   </br>
+
+* Explica cómo se traduce la dirección lógica a la dirección física en el
+  disco.
+   
+   La direccion lógica esta compuesta por un numero de pagina y un desplazamiento de página. El número de página 
+   se utiliza como índice para una tabla de páginas. La tabla de páginas contiene la dirección base de cada página en 
+   memoria física; esta dirección base se combina con el desplazamiento de página para definir la dirección de memoria 
+   física que se envía a la unidad de memoria. 
+
+   </br>
+
+* Proporciona un ejemplo práctico de cómo un archivo se almacena físicamente.
+
+   El esquema de asignación más simple es almacenar cada archivo como una serie contigua de 
+   bloques de disco. Así, en un disco con bloques de 1 KB, a un archivo de 50 KB se le asignarían 
+   50 bloques consecutivos. Con bloques de 2 KB, se le asignarían 25 bloques consecutivos.
+    
+   En la figura 4-10(a) podemos ver un ejemplo de asignación de almacenamiento contigua. Aquí
+   se muestran los primeros 40 bloques de disco, empezando con el bloque 0, a la izquierda. Al principio el 
+   disco estaba vacío, después se escribió un archivo A de cuatro bloques de longitud al disco, empezando 
+   desde el principio (bloque 0). Posteriormente se escribió un archivo de seis bloques llamado B, 
+   empezando justo después del archivo A. Observe que cada archivo empieza al inicio de un nuevo bloque, 
+   por lo que si el archivo A fuera realmente de 31/2 bloques, se desperdiciaría algo de espacio al final 
+   del último bloque. En la figura se muestra un total de siete archivos, cada uno empezando en el bloque 
+   que va después del final del archivo anterior. Se utiliza sombreado sólo para facilitar la distinción 
+   de cada archivo. No tiene un significado real en términos de almacenamiento.
+
+
+   ![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/AC_img.png)
+   </br>
+
+   Un ejemplo de un sistema de archivos que utiliza la asignación contigua de bloques es ext4 y NTFS.
 
    </br>
