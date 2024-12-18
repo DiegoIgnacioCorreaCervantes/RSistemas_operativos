@@ -2595,23 +2595,15 @@ Investiga los componentes principales de un sistema de archivos y compáralos en
 
 * Identifica los componentes clave de un sistema de archivos (por ejemplo, metadatos, tablas de asignación, etc.).
 
-   Métodos de acceso, Administración de archivos, Administracion de almacenamiento auxiliar, Mecanismos de integridad, Organización de archivos física y lógica,  
+   Métodos de acceso, Administración de archivos, Administracion de almacenamiento auxiliar, Mecanismos de integridad y Organización de archivos física y lógica. 
    </br>
 
 * Crea un cuadro comparativo de cómo estos componentes funcionan en sistemas como EXT4 y NTFS.
    
    </br>
 
-   |               Sistema de archivos NTFS                 |               Sistema de archivos Ext4                 |
-   |--------------------------------------------------------|--------------------------------------------------------|
-   |                                                        |                                                        |  
-   |                                                        |                                                        |                                                 
-   |                                                        |                                                        |
-   |                                                        |                                                        |                                                                                                        
-   |                                                        |                                                        |
-   |                                                        |                                                        |            
-   |                                                        |                                                        |                                           
-
+              
+ 
    </br>
 
 * Describe las ventajas y desventajas de cada sistema basado en sus
