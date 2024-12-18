@@ -2601,14 +2601,56 @@ Investiga los componentes principales de un sistema de archivos y compáralos en
 * Crea un cuadro comparativo de cómo estos componentes funcionan en sistemas como EXT4 y NTFS.
    
    </br>
-
-              
+   
+   ![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/Tcomp_SA1.png)
+   
+   ![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/Tcomp_SA2.png)         
  
    </br>
 
 * Describe las ventajas y desventajas de cada sistema basado en sus
   componentes.
 
+   </br>
+   
+   **NTFS**
 
+   Ventajas:
+
+      * Versatilidad.
+      * Seguridad.
+      * Compatibilidad con archivos grandes.
+      * Compresión de archivos.
+      * Recuperación ante errores.
+      * Soporte de Metadatos para permitirle al usuario guardar informacion adicional.
+
+   </br>
+
+   Desventajas:
+
+      * Compatibilidad limitada.
+      * Graves problemas de fragmentación.
+      * Complejidad.
+      * Mayor uso de recursos.
+
+   </br>
+
+   **ext4**
+
+   Ventajas:
+
+      * Desempeño mejorado.
+      * Compatibilidad con versiones anteriores.
+      * Reduce la fragmentación.
+      * Compatible con otros sitemas operativos ademas de linux.
+      * Buen rendimiento.
+      * Mantiene un registro de las transacciones en curso.
+  
+   </br>
+   Desventajas:
+
+      * Escalabilidad limitada.
+      * Sin cifrado nativo.
+      * Fragmentación.
 
    </br>
