@@ -2775,7 +2775,7 @@ Simula diferentes mecanismos de acceso a archivos (secuencial, directo e indexad
 
 * Define los diferentes mecanismos de acceso.   
 
-   **Método de Acceso Secuencial(BSAM)**
+   **Método de Acceso Secuencial**
   
    Cuando se usa el método de acceso secuencial, lo único que se puede hacer es leer los bytes del archivo en orden, 
    empezando por el principio. No puede saltar de una posición del archivo a otra o leerlo desordenado. Si se quiere 
@@ -2786,7 +2786,7 @@ Simula diferentes mecanismos de acceso a archivos (secuencial, directo e indexad
 
    </br>
 
-   **Método de Acceso Directo (BDAM)**
+   **Método de Acceso Directo**
 
    Con la llegada de los dispositivos de acceso directo (como los discos magnéticos), surgió la forma de acceso directo, 
    o aleatorio, a un archivo. El archivo se considera como un conjunto de registros, cada uno de los cuales puede ser 
@@ -2800,7 +2800,7 @@ Simula diferentes mecanismos de acceso a archivos (secuencial, directo e indexad
 
    </br>
 
-   **Método de acceso indexado**
+   **Método de Acceso Indexado**
 
    Es un modo de organización de archivos en el cual al archivo le acompaña un índice que tiene la función de permitir 
    el acceso directo a los registros del disco. El índice se puede organizar de diversas formas, las más típicas son: 
@@ -2812,6 +2812,7 @@ Simula diferentes mecanismos de acceso a archivos (secuencial, directo e indexad
    búsqueda para llegar rápidamente al registro deseado y el archivo de desbordamiento es similar al archivo de registros 
    usado en un archivo acceso secuencial, pero está integrado de forma que los archivos de desbordamiento se ubiquen 
    siguiendo un puntero desde su registro predecesor.
+
    </br>
 
 * Escribe un pseudocódigo que muestre cómo acceder a:
@@ -2831,8 +2832,11 @@ Simula diferentes mecanismos de acceso a archivos (secuencial, directo e indexad
    * Un archivo directamente mediante su posición.
   
     Archivo 1  --> A1.r1 A1.r2 \<A1.r3\> A1.r4
+
     Archivo 2  --> A2.r1 A2.r2 A2.r3 A2.r4
+    
     Archivo 3  --> A3.r1 A3.r2 A3.r3 A3.r4
+    
     Archivo 4  --> A4.r1 A4.r2 A4.r3 A4.r4
                     
    Cada archivo esta conformado por varios registros, se puede acceder a cualquier archivo y a cualquiera de sus registros
@@ -2842,9 +2846,12 @@ Simula diferentes mecanismos de acceso a archivos (secuencial, directo e indexad
 
    * Un archivo utilizando un índice.
 
-    (IA1) Archivo 1  --> A1.r1 A1.r2 A1.r3 A1.r4
+    (\<IA1\>) Archivo 1  --> A1.r1 A1.r2 A1.r3 A1.r4
+    
     (IA1) Archivo 2  --> A1.r1 A1.r2 A1.r3 A1.r4
+    
     (IA3) Archivo 3  --> A1.r1 A1.r2 A1.r3 A1.r4
+    
     (IA4) Archivo 4  --> A1.r1 A1.r2 A1.r3 A1.r4
     
     A cada archivo le acompaña un indice que permite acceder a los archivos ya sea de forma secuencial, recorriendo los indices,
@@ -2854,5 +2861,26 @@ Simula diferentes mecanismos de acceso a archivos (secuencial, directo e indexad
   
 * Compara las ventajas de cada mecanismo dependiendo del caso de uso.
    
- 
+   **Acceso Secuencial:**
+       * Menos propenso a errores
+       * Ligero
+       * Mejor utilización del espacio
+       * Sencillo
+
+   </br>
+
+   **Acceso Directo**
+      * Mas rapido 
+      * Mas eficiente
+      * Menos propenso a fallos del sistema
+
+   </br>
+
+   **Acceso Indexado**
+      * Versatilidad
+      * Menos propenso a errores
+      * Mas rapido
+      * Mas eficiente
+      * Menos propenso a fallos del sistema
+
    </br>
