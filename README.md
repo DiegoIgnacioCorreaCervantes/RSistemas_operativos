@@ -2862,6 +2862,7 @@ Simula diferentes mecanismos de acceso a archivos (secuencial, directo e indexad
 * Compara las ventajas de cada mecanismo dependiendo del caso de uso.
    
    **Acceso Secuencial:**
+
        * Menos propenso a errores
        * Ligero
        * Mejor utilización del espacio
@@ -2869,18 +2870,44 @@ Simula diferentes mecanismos de acceso a archivos (secuencial, directo e indexad
 
    </br>
 
-   **Acceso Directo**
+   **Acceso Directo:**
+
       * Mas rapido 
       * Mas eficiente
       * Menos propenso a fallos del sistema
 
    </br>
 
-   **Acceso Indexado**
+   **Acceso Indexado:**
+
       * Versatilidad
       * Menos propenso a errores
       * Mas rapido
       * Mas eficiente
       * Menos propenso a fallos del sistema
+
+   </br>
+
+#### **Ejercicio 5: Modelo jerárquico y mecanismos de recuperación en caso de falla**
+
+**Descripción:**
+
+Diseña una estructura jerárquica para un sistema de archivos y simula un escenario de falla en el sistema. 
+Describe cómo recuperar los datos utilizando mecanismos de recuperación.
+
+**Tareas:**
+
+* Diseña un modelo jerárquico para un sistema de archivos con al menos tres niveles de directorios.
+
+
+   </br>
+
+*  Simula una falla en un directorio específico y describe los pasos necesarios para recuperarlo.
+
+
+   </br>
+
+* Explica qué herramientas o técnicas de respaldo (backup) utilizarías para evitar pérdida de datos.
+
 
    </br>
