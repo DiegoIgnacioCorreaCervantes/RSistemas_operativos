@@ -2899,15 +2899,51 @@ Describe cómo recuperar los datos utilizando mecanismos de recuperación.
 
 * Diseña un modelo jerárquico para un sistema de archivos con al menos tres niveles de directorios.
 
-
-   </br>
-
 *  Simula una falla en un directorio específico y describe los pasos necesarios para recuperarlo.
 
+   ![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/JDE_img.jpeg)
+
+   Hay dos posibles soluciones para reparar un directorio dañado:
+
+   **Herramienta de recuperacion de Windows:** Nos permite regresar nuestro directorio a una version anterior aunque para 
+   ello es necesario tener un punto de restauracion creado anteriormente, para acceder a la herramienta debemos seguir los siguientes pasos:
+
+   Clic derecho --> propiedades --> Versiones anteriores --> Darle clic al punto de restauracion deseado --> Restaurar
+
+   **Respaldo mediante una copia de seguridad:** Las hay de muchos tipos y tamaños pero todas nos permiten restaurar nuestro sistema al 
+   punto en el que estaba durante su realizacion. Util para recuperar directorios y archivos. Sin enbargo siempre es 
+   recomendable realizar una copia periodicamente pues mientras mas antigua sea mas informacion perderemos al restaurar.
 
    </br>
 
 * Explica qué herramientas o técnicas de respaldo (backup) utilizarías para evitar pérdida de datos.
 
+   Las copias de seguridad son un elemento importante a tener en cuenta para proteger nuestra información, las hay de varios
+   tipos pues cada una trabaja de forma diferente y dependiendo del caso es mejor usar una u otra.
 
+   **Respaldo completo**
+
+   Una copia de seguridad completa es el tipo de copia de seguridad más simple que existe. Cada vez que realiza una 
+   copia de seguridad, hace una copia de todo el conjunto de datos. Esto incluye desde copias de seguridad de archivos 
+   y carpetas de documentos individuales hasta copias de seguridad de imágenes de sistemas operativos completos. Sólo 
+   es necesario realizar una copia de seguridad completa a la vez para asegurarse de que tendrá acceso a toda su información 
+   digital desde el momento en que finalice la operación de copia de seguridad.
+
+   **Copia de seguridad incremental**
+   
+   A partir de una copia de seguridad completa, una copia de seguridad incremental simplemente hará una copia de seguridad de 
+   los datos modificados desde la última instancia de copia de seguridad. Las siguientes copias de seguridad incrementales sólo 
+   guardarán los nuevos cambios de los que aún no se haya hecho una copia de seguridad, lo que garantiza que los datos almacenados 
+   se mantengan actualizados y coherentes.
+
+   **Copia de seguridad diferencial**
+   
+   Las copias de seguridad diferenciales se sitúan entre las copias de seguridad completas y las incrementales. Al igual que las copias 
+   de seguridad incrementales, una copia de seguridad diferencial también comienza con una copia de seguridad completa. Sin embargo, después 
+   de la copia de seguridad completa inicial, sigue copiando e incluyendo los cambios realizados en cualquier parte de la copia de seguridad 
+   completa inicial. Las copias de seguridad diferenciales básicamente hacen una copia de seguridad de todos y cada uno de los cambios realizados 
+   en los datos después de una operación de copia de seguridad completa.
+
+   Lo ideal siempre es empezar con una copia de seguridad completa y en nuestro caso luego pasar a una incremental pues nos permitira
+   tener un mayor control sobre lo que se va a guardar en el siguiente respaldo.
    </br>
