@@ -3006,6 +3006,79 @@ Analiza los objetivos principales que deben cumplir estos mecanismos.
 
 * Da un ejemplo práctico de cómo se aplican estos objetivos en un sistema operativo.
 
+   **Identificación y autentificación**
+
+   La identificación y la autentificación establecen la identidad del usuario.
+
+   Se solicitará que inicie la sesión en el sistema. Debe proporcionar el nombre de usuario y una contraseña si la cuenta tiene contraseña (en un sistema seguro, 
+   todas las cuentas deben tener contraseñas o, de lo contrario, no son válidas). Si la contraseña es correcta, iniciará la sesión con esa cuenta; adquirirá los 
+   derechos y permisos de acceso de la cuenta.
+
+   Las contraseñas cifradas y otros datos relevantes para la seguridad de los usuarios se almacenan en el archivo /etc/security/passwd . Sólo el usuario root puede 
+   acceder a este archivo. Con este acceso restringido de los usuarios a las contraseñas cifradas, cualquier persona no autorizada no podrá descifrar las 
+   contraseñas con un programa que simplemente prueba todas las contraseñas posibles o probables.
+
+   </br>
+
+#### **Ejercicio 2: Clasificación aplicada a la seguridad**
+
+**Descripción:**
+
+Clasifica los mecanismos de seguridad en un sistema operativo y explica cómo cada tipo contribuye a la protección del sistema.
+
+**Tareas:**
+
+* Investiga las clasificaciones comunes de la seguridad, como física, lógica y de red.
+
+   **Hardware**: Se encarga de la protección de los datos y los equipos y sistemas de hardware de la entidad 
+   del robo o el sabotaje, entre otros daños.
+
+   **Software**: La seguridad informática de software tiene como misión proteger la infraestructura relacionada con el software de una organización, 
+   así como los datos relacionados con ella. Es decir, intenta evitar ataques de malware, phishing o virus, entre otros peligros. 
+   
+   **Red**: la seguridad de red protege la información y la infraestructura relacionada con la red de una entidad. Cualquier problema 
+   que haya en ella puede derivar en ataques al software y a los datos, por lo que proteger la integridad de la red es crucial.
+   </br>
+
+* Explica el papel de cada clasificación en la protección de un sistema
+  operativo.
+
+   **Hardware**: La importancia de la seguridad de hardware reside en defender el equipo de amenazas encargadas de
+   dañar o sabotear sus componentes fisicos y de esta forma mantener al equipo trabajando.
+
+   **Software**: La seguridad de software se encarga de administrar los permisos asignados a la informacion almacenada
+   en el computador, ademas de las credenciales asignadas a los usuarios. Tambien es su trabajo detectar los virus y malware 
+   que buscan acceder a estos.
+
+   **Red**: La seguridad de red se encarga del trafico de informacion entre redes locales y externas como lo es el internet,
+   la mayoria de las amenazas provienen del exterior por lo que es especialmente importante.
+
+   </br>
+
+* Proporciona ejemplos prácticos de herramientas o técnicas utilizadas
+ en cada clasificación.
+
+   **Proxies**
+
+   Un Proxy es un servidor físico o virtual que sirve de puente entre un usuario final y otro sitio web o servidor. 
+   Los proxies se utilizan habitualmente en la seguridad contra las amenazas, desde el blindaje de la infraestructura 
+   interna de una empresa frente a amenazas conocidas hasta la gestión de las solicitudes de autenticación o la gestión del 
+   tráfico web. Las solicitudes se envían primero al servidor proxy, que las gestiona junto con las tareas adicionales de 
+   filtrar contenidos, escanear en busca de malware, enmascarar el origen de la solicitud, cifrar mensajes, etc.
+
+   ![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/proxy.png)
+   
+   </br>
+
+   **Permisos**
+
+   El sistema asigna diferentes permisos y credenciales a los usuarios, esta es una forma perfecta de asegurarse
+   de que ningun elemento externo interfiera con la informacion y los archivos que tenemos almacenados.
+
+   ![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/permisos.png)
+   
+   </br>
+
    **Firewall**
 
    Un firewall es un sistema de seguridad de red de las computadoras que restringe el tráfico de Internet entrante, saliente o dentro de una red privada.
