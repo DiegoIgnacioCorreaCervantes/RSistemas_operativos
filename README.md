@@ -2668,6 +2668,7 @@ Investiga los componentes principales de un sistema de archivos y compáralos en
 * Crea un cuadro comparativo de cómo estos componentes funcionan en sistemas como EXT4 y NTFS.
    
    ![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/Tcomp_SA.png)
+   
    </br>
 
 * Describe las ventajas y desventajas de cada sistema basado en sus
@@ -2726,6 +2727,7 @@ en el disco.
   directorios y subdirectorios.
 
    ![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/AA_img.jpeg)
+   
    </br>
 
 * Explica cómo se traduce la dirección lógica a la dirección física en el
@@ -2756,8 +2758,101 @@ en el disco.
 
 
    ![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/AC_img.png)
+   
    </br>
 
    Un ejemplo de un sistema de archivos que utiliza la asignación contigua de bloques es ext4 y NTFS.
 
+   </br>
+
+#### **Ejercicio 4: Mecanismos de acceso a los archivos**
+
+**Descripción:**
+
+Simula diferentes mecanismos de acceso a archivos (secuencial, directo e indexado) en un entorno práctico.
+
+**Tareas:**
+
+* Define los diferentes mecanismos de acceso.   
+
+   **Método de Acceso Secuencial(BSAM)**
+  
+   Cuando se usa el método de acceso secuencial, lo único que se puede hacer es leer los bytes del archivo en orden, 
+   empezando por el principio. No puede saltar de una posición del archivo a otra o leerlo desordenado. Si se quiere 
+   volver atrás, hay que volver al principio y releer todo el archivo hasta el punto deseado. Las operaciones más comunes 
+   son lecturas y escrituras. Este método organiza los registros secuencialmente en el orden en que se ingresan. Un conjunto 
+   de datos que tiene esta organización es un conjunto de datos secuenciales. El usuario organiza registros con otros registros 
+   en bloques, cada registro debe examinarse hasta llegar al archivo deseado.
+
+   </br>
+
+   **Método de Acceso Directo (BDAM)**
+
+   Con la llegada de los dispositivos de acceso directo (como los discos magnéticos), surgió la forma de acceso directo, 
+   o aleatorio, a un archivo. El archivo se considera como un conjunto de registros, cada uno de los cuales puede ser 
+   un byte. Se puede acceder al mismo desordenadamente moviendo el apuntador de acceso al archivo a uno u otro registro. 
+   Esta forma de acceso se basa en un modelo de archivo almacenado en disco, ya que se asume que el dispositivo se 
+   puede mover de forma aleatoria entre los distintos bloques que componen el archivo.
+
+   Organiza registros en cualquier secuencia que indique su programa, y recupera registros por dirección relativa. 
+   Si no conoce la ubicación exacta de un registro, puede especificar un punto en el conjunto de datos donde comenzará 
+   la búsqueda del registro. Los conjuntos de datos organizados de esta manera se llaman conjuntos de datos directos.
+
+   </br>
+
+   **Método de acceso indexado**
+
+   Es un modo de organización de archivos en el cual al archivo le acompaña un índice que tiene la función de permitir 
+   el acceso directo a los registros del disco. El índice se puede organizar de diversas formas, las más típicas son: 
+   secuencial, multinivel y árbol. A través del índice podremos procesar un archivo de forma secuencial o de forma directa 
+   según la clave de indización, y esto independientemente de cómo esté organizado el archivo por sí mismo.
+
+   Los registros se organizan en una secuencia basada en un campo clave presentando dos características, un índice del 
+   archivo para soportar los accesos aleatorios y un archivo de desbordamiento. El índice proporciona una capacidad de 
+   búsqueda para llegar rápidamente al registro deseado y el archivo de desbordamiento es similar al archivo de registros 
+   usado en un archivo acceso secuencial, pero está integrado de forma que los archivos de desbordamiento se ubiquen 
+   siguiendo un puntero desde su registro predecesor.
+   </br>
+
+* Escribe un pseudocódigo que muestre cómo acceder a:
+
+   * Un archivo secuencialmente.
+ 
+   \<Archivo 1\> --> Archivo 2 --> Archivo 3 --> Archivo 4
+
+   Se quiere acceder al archivo 3, por lo tanto debemos recorrer el archivo 1 y 2 para llegar a el. Si ahora quiciéramos
+   acceder al archivo 4 nos veriamos obligados a recorrer todos los archivos anteriores nuevamente. En el caso de agregar 
+   un nuevo archivo este será asignado a la ultima posición.
+
+   \<Archivo 1\> --> Archivo 2 --> Archivo 3 --> Archivo 4 --> Archivo 5
+
+   </br>
+
+   * Un archivo directamente mediante su posición.
+  
+    Archivo 1  --> A1.r1 A1.r2 \<A1.r3\> A1.r4
+    Archivo 2  --> A2.r1 A2.r2 A2.r3 A2.r4
+    Archivo 3  --> A3.r1 A3.r2 A3.r3 A3.r4
+    Archivo 4  --> A4.r1 A4.r2 A4.r3 A4.r4
+                    
+   Cada archivo esta conformado por varios registros, se puede acceder a cualquier archivo y a cualquiera de sus registros
+   a travez de un apuntador de acceso y direcciones relativas.
+
+   </br>
+
+   * Un archivo utilizando un índice.
+
+    (IA1) Archivo 1  --> A1.r1 A1.r2 A1.r3 A1.r4
+    (IA1) Archivo 2  --> A1.r1 A1.r2 A1.r3 A1.r4
+    (IA3) Archivo 3  --> A1.r1 A1.r2 A1.r3 A1.r4
+    (IA4) Archivo 4  --> A1.r1 A1.r2 A1.r3 A1.r4
+    
+    A cada archivo le acompaña un indice que permite acceder a los archivos ya sea de forma secuencial, recorriendo los indices,
+    o de forma directa usando el indice como direccion. 
+
+   </br>
+  
+* Compara las ventajas de cada mecanismo dependiendo del caso de uso.
+   
+ 
    </br>
