@@ -2899,7 +2899,7 @@ Describe cómo recuperar los datos utilizando mecanismos de recuperación.
 
 * Diseña un modelo jerárquico para un sistema de archivos con al menos tres niveles de directorios.
 
-*  Simula una falla en un directorio específico y describe los pasos necesarios para recuperarlo.
+* Simula una falla en un directorio específico y describe los pasos necesarios para recuperarlo.
 
    ![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/JDE_img.jpeg)
 
@@ -2946,4 +2946,83 @@ Describe cómo recuperar los datos utilizando mecanismos de recuperación.
 
    Lo ideal siempre es empezar con una copia de seguridad completa y en nuestro caso luego pasar a una incremental pues nos permitira
    tener un mayor control sobre lo que se va a guardar en el siguiente respaldo.
+   
+   </br>
+
+### Protección y Seguridad
+
+#### **Ejercicio 1: Concepto y objetivos de protección y seguridad**
+
+**Descripción:**
+
+Investiga los conceptos de protección y seguridad en sistemas operativos.
+Analiza los objetivos principales que deben cumplir estos mecanismos.
+
+**Tareas:**
+
+* Define los conceptos de protección y seguridad en el contexto de sistemas operativos.
+
+   **Seguridad**: La seguridad en sistemas operativos se refiere a la capacidad de un sistema para proteger sus recursos, datos y 
+   funcionalidades contra amenazas internas y externas, y garantizar la integridad, disponibilidad y confidencialidad 
+   de la información. A medida que el tiempo avanza y la tecnología se desarrolla, la seguridad también evoluciona y se 
+   adapta a los nuevos escenarios.
+
+   **Protección**: Es el conjunto de mecanismos que controlan el acceso de los procesos y usuarios a los recursos definidos
+   por los sistemas informáticos.
+
+   </br>
+
+* Identifica los objetivos principales de un sistema de protección y seguridad, como confidencialidad, 
+  integridad y disponibilidad.
+   
+   **Monitoreo de Amenazas**: Consiste en establecer rutinas de control en el sistema operativo que evalúan el acceso de los usuarios 
+   y las operaciones que desean realizar sobre los archivos del sistema.
+
+   **Controles de Acceso**: Los derechos de acceso definen los privilegios que tienen los sujetos sobre los objetos en el sistema. 
+   Los derechos de acceso más comunes incluyen lectura, escritura y ejecución.
+   
+   **Protección de recursos**: Una finalidad de la seguridad informática es asegurar que solo usuarios autorizados tengan acceso a los 
+   objetos y datos del sistema, lo que implica definir categorías de usuarios y establecer políticas de seguridad. Dicha autorización 
+   de acceso se otorga cuidadosamente a cada grupo de usuarios.
+   
+   **Autenticación**: Este aspecto verifica la identidad de las personas o máquinas que interactúan con el sistema. La autenticación 
+   protege contra suplantaciones y garantiza que el remitente o destinatario sea quien dice ser. Además de las tradicionales contraseñas, 
+   los certificados digitales ofrecen mayor seguridad.
+
+   **Confidencialidad**: Garantiza que la información sensible de los usuarios, como datos financieros, estratégicos o personales, esté 
+   protegida contra accesos no autorizados. Esto se logra mediante el cifrado de datos, el control de acceso y la implementación de 
+   políticas de privacidad.
+
+   **Integridad**: Hay que asegurar que la información no sea modificada ni alterada de manera no autorizada. Esto implica utilizar técnicas 
+   como la firma digital, el control de versiones y la detección de cambios no autorizados en los datos.
+
+   **Disponibilidad**: Asegura que los sistemas y recursos de información estén disponibles y accesibles cuando se necesiten. Incluye la implementación 
+   de medidas de redundancia, copias de seguridad regulares, etc.
+
+   **No repudio**: Garantiza que las acciones realizadas por los usuarios en los sistemas de información, tanto el emisor como el receptor, sean rastreables y 
+   no puedan ser negadas posteriormente. Esto se logra mediante el registro de actividades y la implementación de técnicas de auditoría y trazabilidad.
+   
+   </br>
+
+* Da un ejemplo práctico de cómo se aplican estos objetivos en un sistema operativo.
+
+   **Firewall**
+
+   Un firewall es un sistema de seguridad de red de las computadoras que restringe el tráfico de Internet entrante, saliente o dentro de una red privada.
+
+   Este software o esta unidad de hardware y software dedicados funciona bloqueando o permitiendo los paquetes de datos de forma selectiva. Normalmente, su 
+   finalidad es ayudar a prevenir la actividad maliciosa y evitar que cualquier persona (dentro o fuera de la red privada) pueda realizar actividades no 
+   autorizadas en la web. Un firewall decide qué tráfico de red se admite y qué tráfico se considera peligroso. Básicamente, separa el tráfico bueno del malo, 
+   o el seguro del no fiable.
+
+   Los firewalls tienen como objetivo proteger las redes privadas y los dispositivos de punto de conexión que se encuentran en ellas, conocidos como hosts de red. 
+   Los hosts de red son dispositivos que se “comunican” con otros hosts en la red. Envían y reciben tráfico entre las redes internas, además de enviar y recibir 
+   tráfico de redes externas.
+
+   Los firewalls crean “cuellos de botella” para canalizar el tráfico web. En esos puntos, se realiza una revisión según un conjunto de parámetros programados 
+   y se actúa en consecuencia. Algunos firewalls también realizan un seguimiento del tráfico y las conexiones en los registros de auditoría para consultar lo que 
+   se ha permitido o bloqueado.
+
+   ![](https://github.com/DiegoIgnacioCorreaCervantes/RSistemas_operativos/blob/main/Imagenes_markdown/firewall.png)
+
    </br>
